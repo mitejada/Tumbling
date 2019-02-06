@@ -18,7 +18,12 @@
 * [View Wireframes][wireframes]
 * [React Components][components]
 * [API Structure][apiStructure]
+* [DB Schema][dbSchema]
 
 [wireframes]: wireframes
-[components]: components
-[apiStructure]: apiStructure
+[components]: components.md
+[apiStructure]: apiStructure.md
+[dbSchema]: dbSchema.md
+
+
+# Implementation Timeline 
