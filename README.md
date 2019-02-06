@@ -18,3 +18,7 @@
 * [View Wireframes][wireframes]
 * [React Components][components]
 * [API Structure][apiStructure]
+
+[wireframes]: wireframes
+[components]: components
+[apiStructure]: apiStructure
