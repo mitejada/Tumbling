@@ -26,4 +26,16 @@
 [dbSchema]: dbSchema.md
 
 
-# Implementation Timeline 
+# Implementation Timeline
+
+## Phase 1:
+* **Objective:**
+
+## Phase 2:
+* **Objective:**
+
+## Phase 3:
+* **Objective:**
+
+
+## Bonus Features (TBD)
