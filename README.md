@@ -15,4 +15,6 @@
 
 # Design Docs
 
-* [View Wireframes] [wireframes]
+* [View Wireframes][wireframes]
+* [React Components][components]
+* [API Structure][apiStructure]
