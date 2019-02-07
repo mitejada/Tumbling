@@ -12,6 +12,8 @@
 * Edit blogs
 * Edit profile
 * Ability to chat and send messages
+* Blog Likes
+* Blog followers
 
 # Design Docs
 
@@ -28,14 +30,15 @@
 
 # Implementation Timeline
 
-## Phase 1:
-* **Objective:**
+## Phase 1: Backend Setup
+* **Objective: Api and database setup**
 
-## Phase 2:
-* **Objective:**
+## Phase 2: Frontend Setup
+* **Objective: Routes and components setup**
 
 ## Phase 3:
 * **Objective:**
 
 
 ## Bonus Features (TBD)
+* user can reblog and share
