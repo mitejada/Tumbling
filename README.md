@@ -30,15 +30,18 @@
 
 # Implementation Timeline
 
-## Phase 1: Backend Setup
-* **Objective: Api and database setup**
+## Phase 1: HOMEPAGE, FRONT & BACK END (1-2 days)
+* **Objective: Set up sign up page, login page, search bar, and logo in header**
 
-## Phase 2: Frontend Setup
-* **Objective: Routes and components setup**
+## Phase 2: USERS, FRONT & BACK END (4-5 days)
+* **Objective: Set up user profile, user account, search bar and dashboard bar in header**
 
-## Phase 3:
-* **Objective:**
+## Phase 3: DASHBOARD PAGE, FRONT & BACK END (4-5 days)
+* **Objective: Set up dashboard page with search bar, posting bar to post a post, will display the posts of users the user is following. On the side will have a recommended blogs panel and a radar panel**
 
+## Phase 4: CSS (3-4 days)
+* **Objective: Make sure website visually looks great**
 
 ## Bonus Features (TBD)
 * user can reblog and share
+* customize profile page
