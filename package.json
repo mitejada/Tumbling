@@ -1,0 +1,19 @@
+{
+  "name": "tumbling",
+  "version": "1.0.0",
+  "description": "[Trello][trello]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitejada/Tumbling.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mitejada/Tumbling/issues"
+  },
+  "homepage": "https://github.com/mitejada/Tumbling#readme"
+}

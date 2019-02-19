@@ -1,0 +1,77 @@
+.home_pic {
+  width: 60px;
+}
+
+.explore_pic {
+  width: 30px;
+  margin-right: 9px;
+}
+
+.tab_bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex: auto;
+}
+
+.navigation {
+  display: flex;
+  flex: auto;
+  margin-top: 10px;
+}
+
+.nav_search_bar {
+  width: 540px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.inbox_pic {
+  width: 30px;
+  margin-right: 9px;
+}
+
+.messaging_pic {
+  width: 40px;
+  margin-right: 9px;
+}
+
+.activity_pic {
+  width: 30px;
+  margin-right: 9px;
+}
+
+.account_pic {
+  width: 30px;
+  margin-right: 9px;
+}
+
+.logo_pic {
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes example {
+  from {
+    color: pink;
+  }
+  to {
+    color: yellow;
+  }
+  to {
+    color: red;
+  }
+  to {
+    color: blue;
+  }
+  to {
+    color: green;
+  }
+
+}
+
+.logo_pic:hover {
+  animation-name: example;
+  animation-duration: 1s;
+
+}

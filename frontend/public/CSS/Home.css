@@ -1,0 +1,55 @@
+
+.login_button, .signup_button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex: auto;
+  border-radius: 20%;
+}
+
+.mainpage_buttons {
+  margin-top: 15%;
+}
+
+.signup_form, .login_form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex: auto;
+  border-radius: 20%;
+  margin-top: 15%;
+}
+
+.homepage_pic {
+  width: 40px;
+  height: 40px;
+}
+
+.login_signup_button {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex: auto;
+}
+
+.login_searchbar, .signup_searchbar {
+  width: 540px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.login_navbar {
+  flex-direction: row;
+}
+
+.magnifying_glass {
+  width: 40px;
+  height: 40px;
+}
+
+.search_input {
+  width: 540px;
+  border-radius: 5px;
+}
