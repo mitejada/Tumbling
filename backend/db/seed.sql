@@ -7,7 +7,8 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR NOT NULL UNIQUE,
   email VARCHAR NOT NULL UNIQUE,
-  password VARCHAR NOT NULL UNIQUE,
+  password_scrambled VARCHAR NOT NULL UNIQUE,
+  date_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   avatar_id VARCHAR
 );
 
@@ -44,6 +45,3 @@ CREATE TABLE comments (
   posts_id INT REFERENCES users(id) ON DELETE CASCADE,
   body VARCHAR NOT NULL
 );
-
-INSERT INTO users (username, email, password, avatar_id)
-VALUES ('mitejada', 'michell@pursuit.org', 'scooby93', 'scooby.jpeg')

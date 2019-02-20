@@ -1,4 +1,10 @@
-const { db } = require('./index.js')
+// const { db } = require('./index.js')
+const pgp = require("pg-promise")({});
+const connectionString = "postgres://localhost/tumbling";
+const db = pgp(connectionString);
+
+const authHelpers = require("../../auth/helpers");
+
 
 const getAllUsers = (req, res, next) => {
   db.any('SELECT * FROM users')
@@ -26,20 +32,6 @@ const getSingleUser = (req, res, next) => {
 }
 
 
-const createAUser = (req, res, next) => {
-  db.none('INSERT INTO users(username, email, password, avatar_id) VALUES(${username}, ${email}, ${password}, ${avatar_id})', req.body)
-    .then(() => {
-      res.status(200).json({
-        status: 'success',
-        message: 'Welcome to Tumbling! Start Tumbling!'
-      })
-    })
-    .catch(err => {
-      return next(err)
-    })
-}
-
-
 const deleteAUser = (req, res, next) => {
   let usersId = parseInt(req.params.id)
   db.none('DELETE FROM users WHERE id=$1', usersId)
@@ -56,9 +48,9 @@ const deleteAUser = (req, res, next) => {
 
 
 const editAUser = (req, res, next) => {
-  db.none('UPDATE users SET username=${username}, password=${password} WHERE id=${id}', {
+  db.none('UPDATE users SET username=${username}, password_scrambled=${password_scrambled} WHERE id=${id}', {
     username: req.body.username,
-    password: req.body.password,
+    password_scrambled: req.body.password_scrambled,
     id: parseInt(req.params.id)
   })
     .then(() => {
@@ -72,4 +64,43 @@ const editAUser = (req, res, next) => {
     })
 }
 
-module.exports = { getAllUsers, getSingleUser, createAUser, deleteAUser, editAUser }
+function createAUser(req, res, next) {
+  const hash = authHelpers.createHash(req.body.password);
+
+  db.none(
+    "INSERT INTO users(username, email, password_scrambled) VALUES (${username}, ${email}, ${password})",
+    { username: req.body.username,
+      email: req.body.email,
+      password: hash
+    }
+  )
+    .then(() => {
+      res.status(200).json({
+        message: "Registration successful."
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: err
+      });
+    });
+}
+
+function logoutUser(req, res, next) {
+  req.logout();
+  res.status(200).send("log out success");
+}
+
+function loginUser(req, res) {
+  res.json(req.user);
+}
+
+function isLoggedIn(req, res) {
+  if(req.user) {
+    res.json({ username: req.user });
+  } else {
+    res.json({ username: null });
+  }
+}
+
+module.exports = { getAllUsers, getSingleUser, deleteAUser, editAUser, createAUser, logoutUser, loginUser, isLoggedIn }

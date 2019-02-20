@@ -8,12 +8,12 @@ const connectionString = "postgres://localhost/tumbling";
 const db = pgp(connectionString);
 
 passport.use(
-  new LocalStrategy((username, email, password, done) => {
+  new LocalStrategy((username, password, done) => {
     db.one("SELECT * FROM users WHERE username = ${username}", {
       username: username
     })
       .then(user => {
-        if(!helpers.comparePass(password, user.password)) {
+        if(!helpers.comparePass(password, user.password_scrambled)) {
           return done(null, false);
         } else {
           return done(null, user);
