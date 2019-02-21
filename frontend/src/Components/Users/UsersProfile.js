@@ -1,14 +1,13 @@
 import React from 'react'
 import Navbar from '../Navbar.js'
+import PostingNavbar from './PostingNavbar'
 
 
 const UsersProfile = () => {
   return (
     <div>
       <Navbar />
-      <nav className='posting_navbar'>
-        <img href="https://cdn2.iconfinder.com/data/icons/game-center-mixed-icons/512/note.png" alt=''></img>
-      </nav>
+      <PostingNavbar />
     </div>
   )
 }

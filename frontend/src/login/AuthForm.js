@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import Auth from "../utils/Auth";
 import Form from "./Form";
 
+
 class AuthForm extends Component {
   state = {
     username: "",
@@ -19,7 +20,6 @@ class AuthForm extends Component {
   };
 
   registerUser = async e => {
-    console.log("hello?")
     e.preventDefault();
     const { username, password, email } = this.state;
 

@@ -13,5 +13,7 @@ router.patch('/:id', editAUser);
 router.delete('/:id', deleteAUser)
 router.post('/login', passport.authenticate("local", {}), loginUser);
 router.post('/logout', loginRequired, logoutUser);
+router.get('/isLoggedIn', isLoggedIn)
+
 
 module.exports = router;

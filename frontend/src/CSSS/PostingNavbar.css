@@ -1,0 +1,27 @@
+.text_icon, .photo_icon, .quote_icon, .link_icon {
+  width: 60px;
+  height: 60px;
+}
+
+.text_icon {
+  display: flex;
+  justify-content: space-around;
+}
+
+.posting_navbar{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 4px;
+  width: 350px;
+  height: 60px;
+  justify-content: space-around;
+}
+
+.posting_div {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const Form = ({
   match,
@@ -15,15 +15,41 @@ const Form = ({
   const path = match.path;
   console.log(registerUser)
   return (
-    <React.Fragment>
-      <h1> {path === "/auth/login" ? "Login" : "Register"} </h1>
-      <form onSubmit={path === "/auth/login" ? loginUser : registerUser }>
+    <div>
+    {path === "auth/login" ?
+      (  <div>
+        <h1> {path === "/auth/login" ? "Login" : "Register"} </h1>
+        <form onSubmit={loginUser}>
         <input
-          type="text"
-          value={username}
-          name="username"
-          placeholder="username"
-          onChange={handleChange}
+        type="text"
+        value={username}
+        name="username"
+        placeholder="username"
+        onChange={handleChange}
+        />
+        <input
+        type="password"
+        value={password}
+        name="password"
+        placeholder="password"
+        onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
+        </form>
+        <p>{isLoggedIn ? "Logged In!" : ""}</p>
+        </div> )
+
+        :
+
+        ( <div>
+        <h1> {path === "/auth/login" ? "Login" : "Register"} </h1>
+        <form onSubmit={registerUser}>
+        <input
+        type="text"
+        value={username}
+        name="username"
+        placeholder="username"
+        onChange={handleChange}
         />
         <input
         type="text"
@@ -33,17 +59,18 @@ const Form = ({
         onChange={handleChange}
         />
         <input
-          type="text"
-          value={password}
-          name="password"
-          placeholder="password"
-          onChange={handleChange}
+        type="password"
+        value={password}
+        name="password"
+        placeholder="password"
+        onChange={handleChange}
         />
         <button type="submit">Submit</button>
-      </form>
-      <p>{isLoggedIn ? "Logged In!" : ""}</p>
-    </React.Fragment>
-  );
+        </form>
+        </div> )
+      }
+      </div>
+      )
 };
 
 export default withRouter(Form);
