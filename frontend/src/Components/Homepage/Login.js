@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Login = ({
-  username,
   password,
   isLoggedIn,
   loginUser,
@@ -10,6 +9,8 @@ const Login = ({
   handleChange,
   email
 }) => {
+
+console.log(isLoggedIn)
   return (
     <div>
       <div className='login_navbar'>
@@ -20,8 +21,8 @@ const Login = ({
         <button className='login_signup_button'><Link to='/signup'>SignUp</Link></button>
       </div>
       <form onSubmit={loginUser} className='login_form'>
-        <input type='text' name='username' value={username} onChange={handleChange} placeholder='Email' />
-        <input type='text' name='password' value={password} onChange={handleChange} placeholder='Password' />
+        <input type='text' name='email' value={email} onChange={handleChange} placeholder='Email' />
+        <input type='password' name='password' value={password} onChange={handleChange} placeholder='Password' />
         <button type='submit'>Log In</button>
       </form>
       <p>{isLoggedIn ? "Logged In!" : ""}</p>

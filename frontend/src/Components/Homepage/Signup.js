@@ -18,7 +18,7 @@ const Signup = ({
       <form onSubmit={registerUser} className='signup_form'>
         <input type='text' name='email' value={email} onChange={handleChange} placeholder='Email' />
         <input type='text' name='password' value={password} onChange={handleChange} placeholder='Password' />
-        <input type='text' name='username' value={username} onChange={handleChange} placeholder='Username' />
+        <input type='password' name='username' value={username} onChange={handleChange} placeholder='Username' />
         <button type='submit'>Get Started</button>
       </form>
       <p>{isLoggedIn ? "Logged In!" : ""}</p>
