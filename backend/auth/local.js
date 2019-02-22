@@ -3,9 +3,8 @@ const LocalStrategy = require("passport-local").Strategy;
 const init = require("./passport");
 const helpers = require("./helpers")
 
-const pgp = require("pg-promise")({});
-const connectionString = "postgres://localhost/tumbling";
-const db = pgp(connectionString);
+const { db } = require('../db/queries/index.js')
+
 
 passport.use(
   new LocalStrategy((username, password, done) => {

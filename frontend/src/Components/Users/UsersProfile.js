@@ -10,6 +10,7 @@ const UsersProfile = (props) => {
     Welcome {props.username} {" ~ "}
     </span>
   ) : null;
+  
   let logoutButton = props.isLoggedIn ? (
     <span>
     <button onClick={this.logoutUser}>Logout</button> {" ~ "}

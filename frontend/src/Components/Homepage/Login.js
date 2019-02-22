@@ -7,7 +7,7 @@ const Login = ({
   loginUser,
   registerUser,
   handleChange,
-  email
+  username
 }) => {
 
 console.log(isLoggedIn)
@@ -21,7 +21,7 @@ console.log(isLoggedIn)
         <button className='login_signup_button'><Link to='/signup'>SignUp</Link></button>
       </div>
       <form onSubmit={loginUser} className='login_form'>
-        <input type='text' name='email' value={email} onChange={handleChange} placeholder='Email' />
+        <input type='text' name='username' value={username} onChange={handleChange} placeholder='Username' />
         <input type='password' name='password' value={password} onChange={handleChange} placeholder='Password' />
         <button type='submit'>Log In</button>
       </form>

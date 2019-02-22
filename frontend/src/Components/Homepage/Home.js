@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
+import DashboardPage from '../DashboardPage.js'
+
 
 
 
@@ -25,6 +27,11 @@ class Homepage extends Component {
               <button className='login_start'><Link to='/auth/login'>Login</Link></button>
             </div>
           </div>
+
+
+          <Switch>
+            <Route exact path='/dashboard' component={DashboardPage} />
+          </Switch>
 
       </div>
     )

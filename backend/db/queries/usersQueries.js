@@ -1,10 +1,5 @@
-// const { db } = require('./index.js')
-const pgp = require("pg-promise")({});
-const connectionString = "postgres://localhost/tumbling";
-const db = pgp(connectionString);
-
+const { db } = require('./index.js')
 const authHelpers = require("../../auth/helpers");
-
 
 const getAllUsers = (req, res, next) => {
   db.any('SELECT * FROM users')
@@ -64,7 +59,7 @@ const editAUser = (req, res, next) => {
     })
 }
 
-function createAUser(req, res, next) {
+const createAUser = (req, res, next) => {
   const hash = authHelpers.createHash(req.body.password);
 
   db.none(
@@ -86,20 +81,22 @@ function createAUser(req, res, next) {
     });
 }
 
-function logoutUser(req, res, next) {
+const logoutUser = (req, res, next) => {
   req.logout();
   res.status(200).send("log out success");
 }
 
-function loginUser(req, res) {
+const loginUser = (req, res) => {
   res.json(req.user);
 }
 
-function isLoggedIn(req, res) {
+const isLoggedIn = (req, res) => {
   if(req.user) {
     res.json({ username: req.user });
   } else {
-    res.json({ username: null });
+    res.status(200).json({
+      message: 'You are not logged in'
+    })
   }
 }
 
