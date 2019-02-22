@@ -1,7 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({
+  username,
+  password,
+  isLoggedIn,
+  loginUser,
+  registerUser,
+  handleChange,
+  email
+}) => {
   return (
     <div>
       <div className='login_navbar'>
@@ -11,11 +19,12 @@ const Login = () => {
         </nav>
         <button className='login_signup_button'><Link to='/signup'>SignUp</Link></button>
       </div>
-      <form className='login_form'>
-        <input type='text' placeholder='Email' />
-        <input type='text' placeholder='Password' />
+      <form onSubmit={loginUser} className='login_form'>
+        <input type='text' name='username' value={username} onChange={handleChange} placeholder='Email' />
+        <input type='text' name='password' value={password} onChange={handleChange} placeholder='Password' />
         <button type='submit'>Log In</button>
       </form>
+      <p>{isLoggedIn ? "Logged In!" : ""}</p>
     </div>
   )
 }

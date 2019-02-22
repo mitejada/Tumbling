@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router";
-import Login from '../Components/Homepage/Login'
-import SignUp from '../Components/Homepage/Signup'
+import Login from './Homepage/Login'
+import SignUp from '.Homepage/Signup'
 // import { Link } from 'react-router-dom'
 
 const Form = ({

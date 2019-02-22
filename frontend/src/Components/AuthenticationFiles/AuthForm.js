@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 // import { withRouter } from "react-router";
 import { Route, Switch } from "react-router-dom";
-import Auth from "../utils/Auth";
-import Form from "./Form";
+import Auth from "./utils/Auth";
+import Login from '../Homepage/Login'
+import Signup from '../Homepage/Signup'
 
 
 class AuthForm extends Component {
@@ -84,7 +85,7 @@ class AuthForm extends Component {
           path="/auth/login"
           render={() => {
             return (
-              <Form
+              <Login
                 username={username}
                 password={password}
                 isLoggedIn={isLoggedIn}
@@ -99,7 +100,7 @@ class AuthForm extends Component {
           path="/auth/signup"
           render={() => {
             return (
-              <Form
+              <Signup
                 username={username}
                 password={password}
                 email={email}

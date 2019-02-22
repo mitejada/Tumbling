@@ -5,17 +5,6 @@ import axios from 'axios'
 
 class Authenticate extends Component {
 
-  logoutUser = () => {
-    axios
-      .post("/users/logout")
-      .then(() => {
-        Auth.deautheticateUser();
-      })
-      .then(() => {
-        this.props.checkAuthenticateStatus();
-      });
-  };
-
 
   render() {
     const { isLoggedIn, username } = this.state;

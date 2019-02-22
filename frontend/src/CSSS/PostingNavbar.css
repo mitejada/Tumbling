@@ -3,6 +3,11 @@
   height: 60px;
 }
 
+.text_button {
+  background-color: transparent;
+  border: none;
+}
+
 .text_icon {
   display: flex;
   justify-content: space-around;

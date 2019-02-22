@@ -4,10 +4,10 @@ import Homepage from './Components/Homepage/Home.js'
 import DashboardPage from './Components/DashboardPage.js'
 import UsersProfile from './Components/Users/UsersProfile.js'
 import Users from "./users/Users";
-import AuthForm from "./login/AuthForm";
+import AuthForm from "./Components/AuthenticationFiles/AuthForm";
 import PrivateRoute from "./utils/AuthRouting";
 // import Authenticate from './Authentication.js'
-import Auth from "./utils/Auth";
+import Auth from "./Components/AuthenticationFiles/utils/Auth";
 import axios from 'axios'
 
 
@@ -38,6 +38,17 @@ class App extends Component {
     });
   }
 
+  logoutUser = () => {
+    axios
+      .post("/users/logout")
+      .then(() => {
+        Auth.deautheticateUser();
+      })
+      .then(() => {
+        this.props.checkAuthenticateStatus();
+      });
+  };
+
   render() {
     return (
       <div className="App">
@@ -45,7 +56,6 @@ class App extends Component {
 
       <Switch>
       <Route exact path='/' component={Homepage} />
-
       <Route exact path='/dashboard' component={DashboardPage} />
       <Route path='/dashboard/user' component={UsersProfile} />
       <Route path='/auth' render={() => {return(<AuthForm checkAuthenticateStatus={this.checkAuthenticateStatus} isLoggedIn={this.props.isLoggedIn} /> ); }} />

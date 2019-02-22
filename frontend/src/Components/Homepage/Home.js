@@ -4,12 +4,6 @@ import { Link } from 'react-router-dom'
 
 
 class Homepage extends Component {
-  constructor(){
-    super()
-    this.state = {
-      clicked: false
-    }
-  }
 
 
   render() {
@@ -23,16 +17,15 @@ class Homepage extends Component {
           </nav>
 
           <div className='mainpage_buttons'>
+            <div className='signup_button'>
+              <button className='signup_getStarted'><Link to='/auth/signup'>Get Started</Link></button>
+            </div>
 
-          <div className='signup_button'>
-            <button className='signup_getStarted'><Link to='/auth/signup'>Get Started</Link></button>
+            <div className='login_button'>
+              <button className='login_start'><Link to='/auth/login'>Login</Link></button>
+            </div>
           </div>
 
-          <div className='login_button'>
-            <button className='login_start'><Link to='/auth/login'>Login</Link></button>
-          </div>
-
-          </div>
       </div>
     )
   }

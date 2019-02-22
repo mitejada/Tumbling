@@ -1,6 +1,13 @@
 import React from 'react'
 
-const Signup = () => {
+const Signup = ({
+  username,
+  password,
+  isLoggedIn,
+  loginUser,
+  registerUser,
+  handleChange,
+  email}) => {
   return (
     <div>
     <nav>
@@ -8,12 +15,13 @@ const Signup = () => {
       <input className='signup_searchbar' type='text' placeholder='search' />
     </nav>
 
-      <form className='signup_form'>
-        <input type='text' placeholder='Email' />
-        <input type='text' placeholder='Password' />
-        <input type='text' placeholder='Username' />
+      <form onSubmit={registerUser} className='signup_form'>
+        <input type='text' name='email' value={email} onChange={handleChange} placeholder='Email' />
+        <input type='text' name='password' value={password} onChange={handleChange} placeholder='Password' />
+        <input type='text' name='username' value={username} onChange={handleChange} placeholder='Username' />
         <button type='submit'>Get Started</button>
       </form>
+      <p>{isLoggedIn ? "Logged In!" : ""}</p>
     </div>
   )
 }
