@@ -32,22 +32,11 @@ class App extends Component {
         if(user.data.username) {
           this.logoutUser();
         } else {
-          Auth.deautheticateUser();
+          Auth.deauthenticateUser();
         }
       }
     });
   }
-
-  logoutUser = () => {
-    axios
-      .post("/users/logout")
-      .then(() => {
-        Auth.deautheticateUser();
-      })
-      .then(() => {
-        this.props.checkAuthenticateStatus();
-      });
-  };
 
   render() {
     return (

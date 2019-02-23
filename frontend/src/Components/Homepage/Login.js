@@ -10,7 +10,6 @@ const Login = ({
   username
 }) => {
 
-console.log(isLoggedIn)
   return (
     <div>
       <div className='login_navbar'>

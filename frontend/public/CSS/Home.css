@@ -1,3 +1,8 @@
+body {
+  background-image: url('https://i.stack.imgur.com/9WYxT.png')
+  no-repeat center center fixed;
+  background-size: cover;
+}
 
 .login_button, .signup_button {
   display: flex;

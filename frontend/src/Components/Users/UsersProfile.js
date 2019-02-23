@@ -1,35 +1,33 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Navbar from '../Navbar.js'
 import PostingNavbar from './PostingNavbar'
-// import Auth from "../AuthenticationFiles/utils/Auth";
+import Auth from "../AuthenticationFiles/utils/Auth";
+import axios from 'axios'
 
 
-const UsersProfile = (props) => {
-  let greeting = props.isLoggedIn ? (
-    <span>
-    Welcome {props.username} {" ~ "}
-    </span>
-  ) : null;
-  
-  let logoutButton = props.isLoggedIn ? (
-    <span>
-    <button onClick={this.logoutUser}>Logout</button> {" ~ "}
-    </span>
-  ) : null
+class UsersProfile extends Component {
 
-  return (
-    <div>
+  logoutUser = () => {
+    axios
+      .post("/users/logout")
+      .then(() => {
+        Auth.deauthenticateUser();
+      })
+      .then(() => {
+        this.props.checkAuthenticateStatus();
+      });
+  };
+
+  render() {
+    return (
+      <div>
       <Navbar />
       <PostingNavbar />
+      <button onClick={this.logoutUser}>Logout</button>
 
-      <div className="App">
-        <nav>
-        {greeting} {logoutButton}
-        </nav>
       </div>
-
-    </div>
-  )
+    )
+  }
 }
 
 
