@@ -1,33 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Navbar from '../Navbar.js'
 import PostingNavbar from './PostingNavbar'
-import Auth from "../AuthenticationFiles/utils/Auth";
-import axios from 'axios'
+import PostsForm from './PostsForm'
 
 
-class UsersProfile extends Component {
 
-  logoutUser = () => {
-    axios
-      .post("/users/logout")
-      .then(() => {
-        Auth.deauthenticateUser();
-      })
-      .then(() => {
-        this.props.checkAuthenticateStatus();
-      });
-  };
+const UsersProfile = ({displayText, handleSubmit, logoutUser}) => {
 
-  render() {
+
     return (
       <div>
       <Navbar />
       <PostingNavbar />
-      <button onClick={this.logoutUser}>Logout</button>
+      <PostsForm handleSubmit={handleSubmit} displayText={displayText}/>
+      <button type='submit' onSubmit={logoutUser}>Logout</button>
+
 
       </div>
     )
-  }
 }
 
 

@@ -9,16 +9,39 @@ import PrivateRoute from "./Components/AuthenticationFiles/utils/AuthRouting";
 // import Authenticate from './Authentication.js'
 import Auth from "./Components/AuthenticationFiles/utils/Auth";
 import axios from 'axios'
+import "./CSSS/Home.css"
+
 
 
 class App extends Component {
   state = {
     isLoggedIn: false,
-    user: ""
+    user: "",
+    displayText: ""
   };
 
   componentDidMount() {
-    this.checkAuthenticateStatus();
+    this.checkAuthenticateStatus(); 
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      displayText: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    axios.post("users/new/text")
+      .then(posts => {
+        this.setState({
+          displayText: this.state.displayText
+        })
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   checkAuthenticateStatus = () => {
@@ -37,6 +60,17 @@ class App extends Component {
       }
     });
   }
+
+  logoutUser = () => {
+    axios
+      .post("/users/logout")
+      .then(() => {
+        Auth.deauthenticateUser();
+      })
+      .then(() => {
+        this.checkAuthenticateStatus();
+      });
+  };
 
   render() {
     return (

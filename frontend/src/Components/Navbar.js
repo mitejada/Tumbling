@@ -4,7 +4,7 @@ import "../CSSS/Navbar.css"
 
 const Navbar = () => {
   return (
-    <div>
+    <div className='navbar'>
 
       <div className='navigation'>
       <img className='logo_pic' src='https://banner2.kisspng.com/20180412/uqw/kisspng-alphabet-letter-clip-art-letter-t-5acefe1ff3dd64.5981215315235149119989.jpg' alt=''></img>
@@ -35,6 +35,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
+      
     </div>
   )
 }

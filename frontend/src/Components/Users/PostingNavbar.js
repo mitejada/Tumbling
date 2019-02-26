@@ -3,17 +3,20 @@ import "../../CSSS/PostingNavbar.css"
 
 
 class PostingNavbar extends Component {
+  state = {
+    input: ''
+  }
 
-handleClick = () => {
-  return (
-    <div>
-      <form>
-        <input type='text' placeholder='enter text' />
-        <button type='submit'>Post</button>
-      </form>
-    </div>
-  )
-}
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+
+  handleClick = () => {
+    console.log(this.state.input)
+  }
 
   render() {
     return (
@@ -21,7 +24,6 @@ handleClick = () => {
       <div className='posting_div'>
       <nav className='posting_navbar'>
 
-      
       <button onClick={this.handleClick} className='text_button' type='submit'>
       <img className='text_icon' src='https://cdn2.iconfinder.com/data/icons/game-center-mixed-icons/512/note.png' alt=''></img>
       </button>

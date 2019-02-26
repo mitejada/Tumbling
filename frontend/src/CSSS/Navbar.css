@@ -7,6 +7,12 @@
   margin-right: 9px;
 }
 
+.navbar {
+  line-height: 1;
+	background-image: linear-gradient(to bottom, #ec3555, #e64143, #dd4d32, #d35821, #c7620d);
+	background-repeat: no-repeat;
+}
+
 .tab_bar {
   display: flex;
   align-items: flex-end;
@@ -49,29 +55,4 @@
 .logo_pic {
   width: 40px;
   height: 40px;
-}
-
-@keyframes example {
-  from {
-    color: pink;
-  }
-  to {
-    color: yellow;
-  }
-  to {
-    color: red;
-  }
-  to {
-    color: blue;
-  }
-  to {
-    color: green;
-  }
-
-}
-
-.logo_pic:hover {
-  animation-name: example;
-  animation-duration: 1s;
-
 }
