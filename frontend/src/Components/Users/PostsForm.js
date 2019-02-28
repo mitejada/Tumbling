@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-// import { withRouter } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
+import UsersProfile from './UsersProfile'
 
 class PostsForm extends Component {
   constructor() {
     super()
       this.state={
         postsText: '',
+        submitCheck: false
       }
   }
 
@@ -16,27 +18,37 @@ class PostsForm extends Component {
     })
   }
 
-  handleSubmit = async e => {
-    e.preventDefault()
+  handleSubmit = (event) => {
+    event.preventDefault()
 
     const { postsText } = this.state
 
-    await axios.post('/posts/new/text', { posts_content: postsText } )
-
+    axios.post('/posts/new/text', {posts_content: postsText} )
+    
+    this.setState({
+      submitCheck: true
+    })
   }
 
     render(){
+      if(this.state.submitCheck) {
+        return <Redirect to='/dashboard/user' component={UsersProfile}/>
+      }
+
+      const { postsText } = this.state
       return (
         <div>
         <form onSubmit={this.handleSubmit}>
         <input
         type='text'
         name='postsText'
-        value={this.state.postsText}
+        value={postsText}
         onChange={this.handleTextChange}
         placeholder='enter text' />
         <button type='submit'>Submit</button>
         </form>
+
+        <button><Link to='/dashboard/user'>Back</Link></button>
         </div>
       )
     }

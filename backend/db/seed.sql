@@ -16,7 +16,6 @@ CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
   author_id INT REFERENCES users(id) ON DELETE CASCADE,
   posts_content TEXT NOT NULL,
-  posts_img VARCHAR NOT NULL,
   date_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -15,7 +15,7 @@ passport.use(
         if(!helpers.comparePass(password, user.password_scrambled)) {
           return done(null, false);
         } else {
-          return done(null, user);
+          return done(null, {username: user.username, id: user.id, avatar_id: user.avatar_id});
         }
       })
       .catch(err => {

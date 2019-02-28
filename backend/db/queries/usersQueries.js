@@ -86,13 +86,13 @@ const logoutUser = (req, res, next) => {
   res.status(200).send("log out success");
 }
 
-const loginUser = (req, res) => {
+const loginUser = (req, res) => {;
     res.json(req.user);
 }
 
 const isLoggedIn = (req, res) => {
   if(req.user) {
-    res.json({ username: req.user });
+    res.json( req.user );
   } else {
     res.status(200).json({
       message: 'You are not logged in'

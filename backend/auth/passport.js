@@ -5,15 +5,15 @@ const db = pgp(connectionString);
 
 module.exports = () => {
   passport.serializeUser((user, done) => {
-    done(null, user.username);
+    done(null, {username: user.username, id: user.id, avatar_id: user.avatar_id});
   });
 
-  passport.deserializeUser((username, done) => {
+  passport.deserializeUser((user, done) => {
     db.one("SELECT * FROM users WHERE username = ${username}", {
-      username: username
+      username: user.username
     })
       .then(user => {
-        done(null, user.username);
+        done(null, {username: user.username, id: user.id, avatar_id: user.avatar_id});
       })
       .catch(err => {
         done(err, null);

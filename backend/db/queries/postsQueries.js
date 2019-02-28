@@ -41,7 +41,8 @@ const deletePosts = (req, res, next) => {
 }
 
 const createPosts = (req, res, next) => {
-  db.none('INSERT INTO posts(posts_content) VALUES(${posts_content})', req.body)
+  req.body.author_id = req.user.id
+  db.none('INSERT INTO posts(author_id, posts_content) VALUES(${author_id}, ${posts_content})', req.body)
     .then(() => {
       res.status(200).json({
         message: 'You have created a new Post!'
@@ -52,11 +53,22 @@ const createPosts = (req, res, next) => {
     })
 }
 
+const getUsersInfoForThePost = (req, res, next) => {
+  db.any('SELECT * FROM users JOIN posts ON posts.author_id = users.id')
+    .then(info => {
+      res.status(200).json({
+        info: info
+      })
+    })
+    .catch(err => {
+      return next(err)
+    })
+}
+
+
 const editPosts = (req, res, next) => {
-  db.none('UPDATE posts SET author_id=${author_id}, posts_content=${posts_content}, posts_img=${posts_img} WHERE id=${id}', {
-    author_id: req.body.author_id,
+  db.none('UPDATE posts SET posts_content=${posts_content} WHERE id=${id}', {
     posts_content: req.body.posts_content,
-    posts_img: req.body.posts_img,
     id: parseInt(req.params.id)
   })
     .then(() => {
@@ -70,4 +82,4 @@ const editPosts = (req, res, next) => {
 }
 
 
-module.exports = { getAllPosts, getSinglePost, deletePosts, createPosts, editPosts }
+module.exports = { getAllPosts, getSinglePost, deletePosts, createPosts, editPosts, getUsersInfoForThePost }

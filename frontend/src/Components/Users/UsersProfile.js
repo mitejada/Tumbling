@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Navbar from '../Navbar.js'
 import PostingNavbar from './PostingNavbar'
+import Posting from './Posting'
 // import Auth from "../AuthenticationFiles/utils/Auth";
 // import axios from 'axios'
 // import PostsForm from './PostsForm'
@@ -15,6 +16,7 @@ class UsersProfile extends Component {
       <div>
       <Navbar />
       <PostingNavbar />
+      <Posting />
       <button className='logout_button' onClick={this.props.logoutUser} type='submit'>Logout</button>
       </div>
     )

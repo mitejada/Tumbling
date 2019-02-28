@@ -11,6 +11,12 @@
   font-size: 25px;
 }
 
+.posts_box {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-row-end: 2
+}
+
 .username_input, .password_input, .email_input, .signup_searchbar, .search_input {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
