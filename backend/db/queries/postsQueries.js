@@ -41,7 +41,7 @@ const deletePosts = (req, res, next) => {
 }
 
 const createPosts = (req, res, next) => {
-  db.none('INSERT INTO posts(author_id, posts_content, posts_img) VALUES(${author_id}, ${posts_content}, ${posts_img})', req.body)
+  db.none('INSERT INTO posts(posts_content) VALUES(${posts_content})', req.body)
     .then(() => {
       res.status(200).json({
         message: 'You have created a new Post!'

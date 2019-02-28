@@ -87,7 +87,7 @@ const logoutUser = (req, res, next) => {
 }
 
 const loginUser = (req, res) => {
-  res.json(req.user);
+    res.json(req.user);
 }
 
 const isLoggedIn = (req, res) => {

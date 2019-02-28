@@ -16,10 +16,10 @@ const Signup = ({
     </nav>
 
       <form onSubmit={registerUser} className='signup_form'>
-        <input type='text' name='email' value={email} onChange={handleChange} placeholder='Email' />
-        <input type='password' name='password' value={password} onChange={handleChange} placeholder='Password' />
-        <input type='text' name='username' value={username} onChange={handleChange} placeholder='Username' />
-        <button type='submit'>Get Started</button>
+        <input type='text' className='email_input' name='email' value={email} onChange={handleChange} placeholder='Email' />
+        <input type='password' className='password_input' name='password' value={password} onChange={handleChange} placeholder='Password' />
+        <input type='text' className='username_input' name='username' value={username} onChange={handleChange} placeholder='Username' />
+        <button className='signupPage_button' type='submit'>Get Started</button>
       </form>
       <p>{isLoggedIn ? "Logged In!" : ""}</p>
     </div>

@@ -1,20 +1,146 @@
-.login_button, .signup_button {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  flex: auto;
-  border-radius: 20%;
+.signup_getStarted, .login_start {
+  background: transparent;
+  border: none
 }
 
-body {
-	line-height: 1;
-	background-image: linear-gradient(to bottom, #ec3555, #e64143, #dd4d32, #d35821, #c7620d);
-	background-repeat: no-repeat;
+.title {
+  display: flex;
+  justify-content: center;
+  padding: 200px;
+  padding-bottom: 10px;
+  font-size: 25px;
+}
+
+.username_input, .password_input, .email_input, .signup_searchbar, .search_input {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  /* position: relative; */
+  left: 100px;
+  padding: 6px 20px;
+  border: 1px solid #b7b7b7;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font: normal 16px/normal "Times New Roman", Times, serif;
+  color: rgba(0,142,198,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(247,230,238,1);
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1)
+}
+
+.logout_button {
+  -moz-box-shadow: 0px 0px 0px 2px #d1d1d1;
+	-webkit-box-shadow: 0px 0px 0px 2px #d1d1d1;
+	box-shadow: 0px 0px 0px 2px #d1d1d1;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fafafa), color-stop(1, #e3d3e3));
+	background:-moz-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:-webkit-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:-o-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:-ms-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:linear-gradient(to bottom, #fafafa 5%, #e3d3e3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#e3d3e3',GradientType=0);
+	background-color:#fafafa;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #c2bec2;
+	/* display:inline-block; */
+	cursor:pointer;
+	color:#292529;
+	font-family:Arial;
+	font-size:19px;
+	padding:12px 37px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loginPage_button, .login_signup_button, .signupPage_button  {
+  -moz-box-shadow: 0px 0px 0px 2px #d1d1d1;
+	-webkit-box-shadow: 0px 0px 0px 2px #d1d1d1;
+	box-shadow: 0px 0px 0px 2px #d1d1d1;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fafafa), color-stop(1, #e3d3e3));
+	background:-moz-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:-webkit-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:-o-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:-ms-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:linear-gradient(to bottom, #fafafa 5%, #e3d3e3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#e3d3e3',GradientType=0);
+	background-color:#fafafa;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #c2bec2;
+	/* display:inline-block; */
+	cursor:pointer;
+	color:#292529;
+	font-family:Arial;
+	font-size:19px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+  display: flex;
+  justify-content: center;
+}
+
+
+.signup_button, .login_button {
+	-moz-box-shadow: 0px 0px 0px 2px #d1d1d1;
+	-webkit-box-shadow: 0px 0px 0px 2px #d1d1d1;
+	box-shadow: 0px 0px 0px 2px #d1d1d1;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fafafa), color-stop(1, #e3d3e3));
+	background:-moz-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:-webkit-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:-o-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:-ms-linear-gradient(top, #fafafa 5%, #e3d3e3 100%);
+	background:linear-gradient(to bottom, #fafafa 5%, #e3d3e3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#e3d3e3',GradientType=0);
+	background-color:#fafafa;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:1px solid #c2bec2;
+	/* display:inline-block; */
+	cursor:pointer;
+	color:#292529;
+	font-family:Arial;
+	font-size:19px;
+	padding:12px 37px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+}
+.signup_button:hover, .login_button:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e3d3e3), color-stop(1, #fafafa));
+	background:-moz-linear-gradient(top, #e3d3e3 5%, #fafafa 100%);
+	background:-webkit-linear-gradient(top, #e3d3e3 5%, #fafafa 100%);
+	background:-o-linear-gradient(top, #e3d3e3 5%, #fafafa 100%);
+	background:-ms-linear-gradient(top, #e3d3e3 5%, #fafafa 100%);
+	background:linear-gradient(to bottom, #e3d3e3 5%, #fafafa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3d3e3', endColorstr='#fafafa',GradientType=0);
+	background-color:#e3d3e3;
+}
+.signup_button:active, .login_button:active {
+	position:relative;
+	top:1px;
 }
 
 .mainpage_buttons {
-  margin-top: 15%;
+  padding: 20px;
+  padding-left: 600px;
+}
+
+.signup_link, .login_link {
+  text-decoration: none;
+  font-size: 16px;
+
 }
 
 .signup_form, .login_form {
@@ -31,6 +157,20 @@ body {
   width: 40px;
   height: 40px;
 }
+
+/* .signup_searchbar, .search_input {
+  background-image: url('http://clipart-library.com/images/8cGb5q86i.jpg') right center;
+  background-repeat:no-repeat;
+  background-position:6px;
+  border:1px solid #DADADA;
+  margin-top:10px;
+  padding-left:35px;
+  width:310px;
+  height:30px;
+  font-size:14px;
+  box-shadow:0 0 10px;
+
+} */
 
 .login_signup_button {
   display: flex;
@@ -49,10 +189,10 @@ body {
   flex-direction: row;
 }
 
-.magnifying_glass {
+/* .magnifying_glass {
   width: 40px;
   height: 40px;
-}
+} */
 
 .search_input {
   width: 540px;

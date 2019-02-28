@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import Homepage from './Components/Homepage/Home.js'
 // import DashboardPage from './Components/DashboardPage.js'
 import UsersProfile from './Components/Users/UsersProfile.js'
-// import Users from "./Components/AuthenticationFiles/users/Users";
 import AuthForm from "./Components/AuthenticationFiles/AuthForm";
 import PrivateRoute from "./Components/AuthenticationFiles/utils/AuthRouting";
 // import Authenticate from './Authentication.js'
 import Auth from "./Components/AuthenticationFiles/utils/Auth";
+import PostsForm from './Components/Users/PostsForm'
 import axios from 'axios'
 import "./CSSS/Home.css"
 
@@ -17,31 +17,10 @@ class App extends Component {
   state = {
     isLoggedIn: false,
     user: "",
-    displayText: ""
   };
 
   componentDidMount() {
-    this.checkAuthenticateStatus(); 
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      displayText: event.target.value
-    })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-
-    axios.post("users/new/text")
-      .then(posts => {
-        this.setState({
-          displayText: this.state.displayText
-        })
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    this.checkAuthenticateStatus();
   }
 
   checkAuthenticateStatus = () => {
@@ -70,6 +49,8 @@ class App extends Component {
       .then(() => {
         this.checkAuthenticateStatus();
       });
+
+      this.props.history.push("/")
   };
 
   render() {
@@ -84,11 +65,12 @@ class App extends Component {
           return <Redirect to='/dashboard/user' />
         }
         return(<AuthForm checkAuthenticateStatus={this.checkAuthenticateStatus} isLoggedIn={this.state.isLoggedIn} /> ); }} />
-      <PrivateRoute path="/dashboard/user" component={UsersProfile} />
+      <Route path='/new/text' component={PostsForm} />
+      <PrivateRoute path="/dashboard/user" component={UsersProfile} logoutUser={this.logoutUser}/>
       </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

@@ -3,9 +3,9 @@
   height: 60px;
 }
 
-.text_button {
+.text_button, .photo_button, .quote_button, .link_button {
   background-color: transparent;
-  border: none;
+  border: none
 }
 
 .text_icon {

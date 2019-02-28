@@ -20,9 +20,9 @@ const Login = ({
         <button className='login_signup_button'><Link to='/auth/signup'>SignUp</Link></button>
       </div>
       <form onSubmit={loginUser} className='login_form'>
-        <input type='text' name='username' value={username} onChange={handleChange} placeholder='Username' />
-        <input type='password' name='password' value={password} onChange={handleChange} placeholder='Password' />
-        <button type='submit'>Log In</button>
+        <input type='text' className='username_input' name='username' value={username} onChange={handleChange} placeholder='Username' />
+        <input type='password' className='password_input' name='password' value={password} onChange={handleChange} placeholder='Password' />
+        <button className='loginPage_button' type='submit'>Log In</button>
       </form>
     </div>
   )

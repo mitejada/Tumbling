@@ -1,25 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Navbar from '../Navbar.js'
 import PostingNavbar from './PostingNavbar'
-import PostsForm from './PostsForm'
+// import Auth from "../AuthenticationFiles/utils/Auth";
+// import axios from 'axios'
+// import PostsForm from './PostsForm'
+// import { withRouter } from 'react-router-dom'
 
 
 
-const UsersProfile = ({displayText, handleSubmit, logoutUser}) => {
+class UsersProfile extends Component {
 
-
+    render() {
     return (
       <div>
       <Navbar />
       <PostingNavbar />
-      <PostsForm handleSubmit={handleSubmit} displayText={displayText}/>
-      <button type='submit' onSubmit={logoutUser}>Logout</button>
-
-
+      <button className='logout_button' onClick={this.props.logoutUser} type='submit'>Logout</button>
       </div>
     )
+  }
 }
-
-
 
 export default UsersProfile

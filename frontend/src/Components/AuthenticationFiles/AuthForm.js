@@ -75,7 +75,6 @@ class AuthForm extends Component {
   };
 
 
-
   render() {
     const { username, password, email } = this.state;
     const { isLoggedIn } = this.props;
@@ -93,6 +92,7 @@ class AuthForm extends Component {
                 loginUser={this.loginUser}
                 registerUser={this.registerUser}
                 handleChange={this.handleChange}
+                logoutUser={this.logoutUser}
               />
             );
           }}
@@ -109,6 +109,7 @@ class AuthForm extends Component {
                 loginUser={this.loginUser}
                 registerUser={this.registerUser}
                 handleChange={this.handleChange}
+                logoutUser={this.logoutUser}
               />
             );
           }}

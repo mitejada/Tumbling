@@ -1,46 +1,38 @@
 import React, { Component } from 'react'
 import "../../CSSS/PostingNavbar.css"
+import { Link } from 'react-router-dom'
 
 
 class PostingNavbar extends Component {
-  state = {
-    input: ''
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
-
-  handleClick = () => {
-    console.log(this.state.input)
-  }
 
   render() {
     return (
       <div>
       <div className='posting_div'>
+
       <nav className='posting_navbar'>
 
-      <button onClick={this.handleClick} className='text_button' type='submit'>
-      <img className='text_icon' src='https://cdn2.iconfinder.com/data/icons/game-center-mixed-icons/512/note.png' alt=''></img>
+      <button className='text_button'>
+      <Link to='/new/text'><img className='text_icon' src='https://cdn2.iconfinder.com/data/icons/game-center-mixed-icons/512/note.png' alt=''></img></Link>
       </button>
 
+      <button className='photo_button'>
+      <Link to='/new/photo'>
+      <img className='photo_icon' src='http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png' alt=''></img></Link>
+      </button>
 
-      <a href='http://localhost:3000/new/photo'>
-      <img className='photo_icon' src='http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/device-camera-icon.png' alt=''></img>
-      </a>
+      <button className='quote_button'>
+      <Link to='/new/quote'>
+      <img className='quote_icon' src='https://banner2.kisspng.com/20180402/skw/kisspng-computer-icons-quotation-symbol-quotation-5ac1f74c6913d7.1398692715226611964304.jpg' alt=''></img></Link>
+      </button>
 
-      <a href='http://localhost:3000/new/quote'>
-      <img className='quote_icon' src='http://clipart-library.com/img/1720950.jpg' alt=''></img>
-      </a>
+      <button className='link_button'>
+      <Link to='/new/link'>
+      <img className='link_icon' src='http://icon-park.com/imagefiles/link_icon1_blue.png' alt=''></img></Link>
+      </button>
 
-      <a href='http://localhost:3000/new/link'>
-      <img className='link_icon' src='http://icon-park.com/imagefiles/link_icon1_blue.png' alt=''></img>
-      </a>
       </nav>
+
       </div>
       </div>
     )
