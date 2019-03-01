@@ -11,10 +11,19 @@
   font-size: 25px;
 }
 
-.posts_box {
+.posts_box{
   display: grid;
   grid-template-columns: repeat(3, 33%);
-  grid-row-end: 2
+}
+
+.post_container {
+  border: 1px solid black;
+  padding: 18px;
+}
+
+.posts_box_outline {
+  grid-column-start: 2;
+  margin-top: 15px;
 }
 
 .username_input, .password_input, .email_input, .signup_searchbar, .search_input {
@@ -62,8 +71,6 @@
 	font-family:Arial;
 	font-size:19px;
 	padding:12px 37px;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .loginPage_button, .login_signup_button, .signupPage_button  {

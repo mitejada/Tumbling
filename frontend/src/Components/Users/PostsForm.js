@@ -8,7 +8,7 @@ class PostsForm extends Component {
     super()
       this.state={
         postsText: '',
-        submitCheck: false
+        submitCheck: false,
       }
   }
 
@@ -22,9 +22,10 @@ class PostsForm extends Component {
     event.preventDefault()
 
     const { postsText } = this.state
+    axios.post('/posts/new/text', {posts_content: postsText} ).catch(err=>{
+console.log(err)
+      throw Error})
 
-    axios.post('/posts/new/text', {posts_content: postsText} )
-    
     this.setState({
       submitCheck: true
     })
@@ -32,23 +33,22 @@ class PostsForm extends Component {
 
     render(){
       if(this.state.submitCheck) {
-        return <Redirect to='/dashboard/user' component={UsersProfile}/>
+        return <Redirect to='/dashboard/user' component={UsersProfile} />
       }
 
       const { postsText } = this.state
       return (
         <div>
-        <form onSubmit={this.handleSubmit}>
-        <input
-        type='text'
-        name='postsText'
-        value={postsText}
-        onChange={this.handleTextChange}
-        placeholder='enter text' />
-        <button type='submit'>Submit</button>
-        </form>
-
-        <button><Link to='/dashboard/user'>Back</Link></button>
+            <form onSubmit={this.handleSubmit}>
+            <input
+            type='text'
+            name='postsText'
+            value={postsText}
+            onChange={this.handleTextChange}
+            placeholder='enter text' />
+            <button type='submit'>Submit</button>
+            </form>
+            <button><Link to='/dashboard/user'>Back</Link></button>
         </div>
       )
     }

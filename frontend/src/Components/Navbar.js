@@ -11,7 +11,7 @@ const Navbar = () => {
       <input className='nav_search_bar' type='text' placeholder="Search Tumbling" />
         <nav className='tab_bar'>
           <div className='home_tab'>
-            <Link to='/dashboard'><img className='home_pic' src='https://imageog.flaticon.com/icons/png/512/25/25694.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF' alt=''></img></Link>
+            <Link to='/dashboard/user'><img className='home_pic' src='https://imageog.flaticon.com/icons/png/512/25/25694.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF' alt=''></img></Link>
           </div>
 
           <div className='explore_tab'>
@@ -35,7 +35,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-      
+
     </div>
   )
 }

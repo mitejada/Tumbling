@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 
-class Posting extends Component {
+class TextPosting extends Component {
   constructor(){
     super()
     this.state = {
@@ -20,13 +20,13 @@ class Posting extends Component {
         this.setState({
           postStorage: results.data.info
         })
-      })
+      }).catch(err=>console.log(err))
   }
 
   renderPosts = () => {
-    const displayPosts = this.state.postStorage.map((display, id) => {
+    const displayPosts = this.state.postStorage.map(display => {
       return (
-        <div key={display.id}>
+        <div className='post_container' key={display.id}>
           <h3>{display.username}</h3>
           <p>{display.posts_content}</p>
         </div>
@@ -34,7 +34,7 @@ class Posting extends Component {
     })
 
     return (
-      <div>
+      <div className='posts_box_outline'>
         {displayPosts}
       </div>
     )
@@ -53,4 +53,4 @@ class Posting extends Component {
 
 
 
-export default Posting
+export default TextPosting

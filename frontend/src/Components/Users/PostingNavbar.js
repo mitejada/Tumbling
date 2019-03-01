@@ -13,7 +13,8 @@ class PostingNavbar extends Component {
       <nav className='posting_navbar'>
 
       <button className='text_button'>
-      <Link to='/new/text'><img className='text_icon' src='https://cdn2.iconfinder.com/data/icons/game-center-mixed-icons/512/note.png' alt=''></img></Link>
+      <Link to='/new/text'>
+      <img className='text_icon' src='https://cdn2.iconfinder.com/data/icons/game-center-mixed-icons/512/note.png' alt=''></img></Link>
       </button>
 
       <button className='photo_button'>

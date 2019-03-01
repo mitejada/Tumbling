@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const { getAllUsers, getSingleUser, createAUser, deleteAUser, editAUser, logoutUser, loginUser, isLoggedIn  } = require('../db/queries/usersQueries.js')
 const passport = require('../auth/local');
 const { loginRequired } = require('../auth/helpers')

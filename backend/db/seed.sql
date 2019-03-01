@@ -16,6 +16,7 @@ CREATE TABLE posts (
   id SERIAL PRIMARY KEY,
   author_id INT REFERENCES users(id) ON DELETE CASCADE,
   posts_content TEXT NOT NULL,
+  posts_img VARCHAR,
   date_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -43,3 +44,6 @@ CREATE TABLE comments (
   posts_id INT REFERENCES users(id) ON DELETE CASCADE,
   body VARCHAR NOT NULL
 );
+
+INSERT INTO users (username, email, password_scrambled, avatar_id)
+VALUES ('aaron', 'aaron@aaron.com', 'aaron', 'http://google.com')

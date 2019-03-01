@@ -86,7 +86,7 @@ const logoutUser = (req, res, next) => {
   res.status(200).send("log out success");
 }
 
-const loginUser = (req, res) => {;
+const loginUser = (req, res) => {
     res.json(req.user);
 }
 
