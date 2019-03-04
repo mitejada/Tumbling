@@ -8,7 +8,8 @@ class ImageForm extends Component {
   constructor() {
     super()
       this.state={
-        postsImg: [],
+        postsImg: '',
+        postsType: 'image',
         submitImgCheck: false
       }
   }
@@ -22,9 +23,9 @@ class ImageForm extends Component {
   handleImgSubmit = (event) => {
     event.preventDefault()
 
-    const { postsImg } = this.state
+    const { postsImg, postsType } = this.state
 
-    axios.post('/posts/new/photo', {posts_img: postsImg} )
+    axios.post('/posts/new', {posts_img: postsImg, posts_type: postsType} )
 
     this.setState({
       submitImgCheck: true
@@ -36,7 +37,7 @@ class ImageForm extends Component {
         return <Redirect to='/dashboard/user' component={UsersProfile} />
       }
 
-      const { postsText, postsImg } = this.state
+      const { postsImg } = this.state
       return (
         <div>
             <form onSubmit={this.handleImgSubmit}>
@@ -44,7 +45,7 @@ class ImageForm extends Component {
               type='text'
               name='postsImg'
               value={postsImg}
-              onChange={this.handleTextChange}
+              onChange={this.handleImgChange}
               placeholder='enter img url' />
               <button type='submit'>Submit</button>
             </form>

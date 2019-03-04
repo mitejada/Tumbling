@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom'
 
 
 class PostingNavbar extends Component {
+  handleTextClick = () => {
+    if(this.props.postsType === 'text') {
+      this.setState({
+        postsType: this.props.postsType
+      })
+    }
+  }
+
 
   render() {
     return (
@@ -12,7 +20,7 @@ class PostingNavbar extends Component {
 
       <nav className='posting_navbar'>
 
-      <button className='text_button'>
+      <button onClick={this.handleTextClick} className='text_button'>
       <Link to='/new/text'>
       <img className='text_icon' src='https://cdn2.iconfinder.com/data/icons/game-center-mixed-icons/512/note.png' alt=''></img></Link>
       </button>

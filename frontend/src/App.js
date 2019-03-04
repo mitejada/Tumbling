@@ -8,6 +8,8 @@ import PrivateRoute from "./Components/AuthenticationFiles/utils/AuthRouting";
 // import Authenticate from './Authentication.js'
 import Auth from "./Components/AuthenticationFiles/utils/Auth";
 import PostsForm from './Components/Users/PostsForm'
+// import RouteForPosts from './RouteForPosts'
+import ImageForm from './Components/Users/ImageForm'
 import axios from 'axios'
 import "./CSSS/Home.css"
 
@@ -66,6 +68,7 @@ class App extends Component {
         }
         return(<AuthForm checkAuthenticateStatus={this.checkAuthenticateStatus} isLoggedIn={this.state.isLoggedIn} /> ); }} />
       <Route path='/new/text' component={PostsForm} />
+      <Route path='/new/photo' component={ImageForm} />
       <PrivateRoute path="/dashboard/user" component={UsersProfile} logoutUser={this.logoutUser}/>
       </Switch>
       </div>

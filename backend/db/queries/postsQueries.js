@@ -41,9 +41,14 @@ const deletePosts = (req, res, next) => {
 }
 
 const createPost = (req, res, next) => {
-  db.none('INSERT INTO posts(author_id, posts_content) VALUES(${author_id}, ${posts_content})', {
-    author_id: req.user.id,
-    posts_content: req.body.posts_content })
+  let statement = "INSERT INTO posts"
+  console.log(req.body);
+  if(req.body.posts_type === 'text') {
+    statement = statement.concat("(author_id, posts_content, posts_type) VALUES(${author_id}, ${posts_content}, ${posts_type})");
+  } else if( req.body.posts_type === "image") {
+    statement = statement.concat('(author_id, posts_content, posts_type, posts_img) VALUES(${author_id}, ${posts_content}, ${posts_type}, ${posts_img})')
+  }
+  db.none(`${statement}`, {...req.body, author_id: req.user.id})
     .then(() => {
       res.status(200).json({
         message: 'You have created a new Post!'
@@ -53,6 +58,22 @@ const createPost = (req, res, next) => {
       return next(err)
     })
 }
+
+// const createTextPost = (req, res, next) => {
+//   db.none('INSERT INTO posts(author_id, posts_content) VALUES(${author_id}, ${posts_content})', req.body)
+// }
+//
+// const createImagePost = (req, res, next) => {
+//   db.none('INSERT INTO posts(author_id, posts_img) VALUES(${author_id}, ${posts_img})', req.body)
+//     .then(() => {
+//       res.status(200).json({
+//         message: 'You have created an Image post!'
+//       })
+//     })
+//     .catch(err => {
+//       return next(err)
+//     })
+// }
 
 const getUsersInfoForThePost = (req, res, next) => {
   req.body.author_id = req.user.id

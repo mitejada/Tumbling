@@ -7,7 +7,7 @@ router.get('/', getAllPosts);
 router.get('/dashboard/usersPost', getUsersInfoForThePost)
 router.get('/:id', getSinglePost);
 router.delete('/:id', deletePosts);
-router.post('/new/text', createPost)
+router.post('/new', createPost)
 router.patch('/:id', editPosts);
 
 

@@ -8,6 +8,7 @@ class PostsForm extends Component {
     super()
       this.state={
         postsText: '',
+        postsType: 'text',
         submitCheck: false,
       }
   }
@@ -21,10 +22,13 @@ class PostsForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    const { postsText } = this.state
-    axios.post('/posts/new/text', {posts_content: postsText} ).catch(err=>{
-console.log(err)
-      throw Error})
+    const { postsText, postsType } = this.state
+
+    axios.post('/posts/new', {posts_content: postsText, posts_type: postsType} )
+      .catch(err => {
+        return Error
+      })
+
 
     this.setState({
       submitCheck: true

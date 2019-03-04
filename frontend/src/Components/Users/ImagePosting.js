@@ -27,7 +27,8 @@ class ImagePosting extends Component {
     const displayImages = this.state.imageStorage.map(display => {
       return (
         <div key={display.id}>
-          <img src={display.posts_img} alt=''></img>
+          <p>{display.username}</p>
+          <img src={display.posts_img} alt=''/>
         </div>
       )
     })
