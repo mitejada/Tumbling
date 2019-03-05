@@ -18,7 +18,7 @@ const Homepage = () => {
 
           <div className='homepage_midsection'>
           <div className='title'>
-            <h1>TUMBLING</h1>
+            <h1 className='title_font'>TUMBLING</h1>
           </div>
 
           <div className='mainpage_buttons'>

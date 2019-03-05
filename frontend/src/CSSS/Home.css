@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Unicase|Source+Code+Pro');
+
+
 .signup_getStarted, .login_start {
   background: transparent;
   border: none
@@ -10,6 +13,12 @@
   padding-bottom: 10px;
   font-size: 25px;
   grid-column-start: 2
+}
+
+.title_font {
+  font-family: 'Source Code Pro';
+  color: white;
+  -webkit-text-stroke: 2px black
 }
 
 .footer {
@@ -26,8 +35,19 @@
 .post_container {
   display: grid;
   grid-template-columns: 10% 50% 10%;
-  grid-template-rows: 15% 80% 10%;
+  grid-template-rows: 15% 10% 80%;
   height: 400px;
+  width: 600px;
+  justify-content: center;
+  justify-items: center;
+  border: 1px solid black;
+  background-color: white;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.main_render_div {
+  display: grid;
   justify-content: center;
 }
 
@@ -39,22 +59,23 @@
 .username {
   grid-column: 2;
   grid-row: 1/3;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .content {
   grid-column: 2;
   grid-row: 2/3;
-  background-color: white;
+  padding-bottom: 10px;
+  /* background-color: white; */
 }
 
 .display {
   grid-column: 2;
-  grid-row: 2/3;
+  grid-row: 3/3;
   align-items: center;
   width: auto;
   height: auto;
-  background-color: white
+  /* background-color: white; */
 }
 
 .posts_box_outline {
@@ -234,6 +255,10 @@
 .search_input {
   width: 540px;
   border-radius: 5px;
+}
+
+.image_url_input, .image_text_input {
+  background-color: darkblue
 }
 
 

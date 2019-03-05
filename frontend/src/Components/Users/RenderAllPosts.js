@@ -80,7 +80,7 @@ class RenderAllPosts extends Component {
     })
 
     return (
-      <div >
+      <div className='main_render_div'>
         {displayEveryPost}
       </div>
     )

@@ -8,6 +8,10 @@
   border: none
 }
 
+.quote_button {
+  background-color: transparent;
+}
+
 .text_icon {
   display: flex;
   justify-content: space-around;
@@ -23,6 +27,7 @@
   width: 350px;
   height: 60px;
   justify-content: space-around;
+  background-image: url('https://pbs.twimg.com/profile_images/976648863099641858/pNOSI0wz_400x400.jpg');
 }
 
 .posting_div {

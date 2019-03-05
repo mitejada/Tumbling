@@ -49,12 +49,14 @@ class ImageForm extends Component {
         <div>
             <form onSubmit={this.handleImgSubmit}>
               <input
+              className='image_text_input'
               type='text'
               name='postsText'
               value={postsImgText}
               onChange={this.handleImgTextChange}
               placeholder='enter title' />
               <input
+              className='image_url_input'
               type='text'
               name='postsImg'
               value={postsImg}
