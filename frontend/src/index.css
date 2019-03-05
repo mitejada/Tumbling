@@ -1,4 +1,8 @@
 body {
-	background: linear-gradient(to bottom, #ec3555, #e64143, #dd4d32, #d35821, #c7620d)no-repeat center center fixed;
+	background: url('https://wallpapercave.com/wp/wc1775114.jpg')no-repeat center center fixed;
   background-size: cover;;
 }
+
+
+
+/* background: linear-gradient(to bottom, #ec3555, #e64143, #dd4d32, #d35821, #c7620d)no-repeat center center fixed; */

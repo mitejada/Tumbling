@@ -35,6 +35,14 @@ const Homepage = () => {
           </div>
 
 
+          <div className="footer">
+            <a href='https://www.tumblr.com/policy/en/terms-of-service'>Terms</a>
+            <a href='https://www.tumblr.com/privacy'>Privacy</a>
+            <a href='https://www.tumblr.com/jobs'>Jobs</a>
+            <a href ='https://www.tumblr.com/login'>Support</a>
+          </div>
+
+
           <Switch>
             <Route exact path='/dashboard' component={DashboardPage} />
           </Switch>

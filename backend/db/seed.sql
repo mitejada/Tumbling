@@ -18,6 +18,8 @@ CREATE TABLE posts (
   posts_content TEXT NOT NULL,
   posts_img VARCHAR,
   posts_type VARCHAR,
+  posts_link VARCHAR,
+  posts_quote VARCHAR,
   date_stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -47,4 +49,4 @@ CREATE TABLE comments (
 );
 
 INSERT INTO users (username, email, password_scrambled, avatar_id)
-VALUES ('aaron', 'aaron@aaron.com', 'aaron', 'http://google.com')
+VALUES ('aaron', 'aaron@aaron.com', 'aaron', 'https://media.npr.org/assets/img/2016/08/07/ap_547006314025_custom-79aa3abcc83be8331cf8b86cb85b5c4c11e31e14-s800-c85.jpg')
