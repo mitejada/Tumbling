@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
-import UsersProfile from './UsersProfile'
+import UsersDashboard from './UsersDashboard'
 
 
 class QuotesForms extends Component {
@@ -34,14 +34,16 @@ class QuotesForms extends Component {
 
     render(){
       if(this.state.submitImgCheck) {
-        return <Redirect to='/dashboard/user' component={UsersProfile} />
+        return <Redirect to='/dashboard/user' component={UsersDashboard} />
       }
 
       const { postsQuote } = this.state
       return (
         <div>
+          <div className='forms'>
             <form onSubmit={this.handleQuoteSubmit}>
               <input
+              className='input_boxes'
               type='text'
               name='postsQuote'
               value={postsQuote}
@@ -49,7 +51,12 @@ class QuotesForms extends Component {
               placeholder='enter img url' />
               <button type='submit'>Submit</button>
             </form>
-            <button><Link to='/dashboard/user'>Back</Link></button>
+          </div>
+
+          <div className='back_button'>
+            <Link to='/dashboard/user'><button>Back</button></Link>
+          </div>
+
         </div>
       )
     }

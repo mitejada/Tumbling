@@ -38,7 +38,7 @@ class RenderAllPosts extends Component {
             </div>
 
             <div className='content'>
-            <p>{display.posts_content}</p>
+            <p className='content'>{display.posts_content}</p>
             </div>
 
           </div>
@@ -52,7 +52,7 @@ class RenderAllPosts extends Component {
             </div>
 
             <div className='content'>
-            <p>{display.posts_content}</p>
+            <p className='content'>{display.posts_content}</p>
             </div>
 
             <div className='display'>
@@ -80,9 +80,11 @@ class RenderAllPosts extends Component {
     })
 
     return (
+      <>
       <div className='main_render_div'>
         {displayEveryPost}
       </div>
+      </>
     )
   }
 }

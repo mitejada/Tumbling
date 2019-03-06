@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
-import UsersProfile from './UsersProfile'
+import UsersDashboard from './UsersDashboard'
 
 
 class ImageForm extends Component {
@@ -41,22 +41,23 @@ class ImageForm extends Component {
 
     render(){
       if(this.state.submitImgCheck) {
-        return <Redirect to='/dashboard/user' component={UsersProfile} />
+        return <Redirect to='/dashboard/user' component={UsersDashboard} />
       }
 
       const { postsImg, postsImgText } = this.state
       return (
         <div>
+          <div className='forms'>
             <form onSubmit={this.handleImgSubmit}>
               <input
-              className='image_text_input'
+              className='input_boxes'
               type='text'
               name='postsText'
               value={postsImgText}
               onChange={this.handleImgTextChange}
               placeholder='enter title' />
               <input
-              className='image_url_input'
+              className='input_boxes'
               type='text'
               name='postsImg'
               value={postsImg}
@@ -64,7 +65,12 @@ class ImageForm extends Component {
               placeholder='enter img url' />
               <button type='submit'>Submit</button>
             </form>
-            <button><Link to='/dashboard/user'>Back</Link></button>
+          </div>
+
+          <div className='back_button'>
+            <Link to='/dashboard/user'><button>Back</button></Link>
+          </div>
+
         </div>
       )
     }

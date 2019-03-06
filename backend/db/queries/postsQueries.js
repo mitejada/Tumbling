@@ -77,6 +77,19 @@ const getUsersInfoForThePost = (req, res, next) => {
     })
 }
 
+const getAllPostsFromUsers = (req, res, next) => {
+  let usersId = parseInt(req.params.id)
+  db.any('SELECT * FROM users JOIN posts ON posts.author_id = users.id WHERE users.id=$1', usersId)
+    .then(data => {
+      res.status(200).json({
+        data: data
+      })
+    })
+    .catch(err => {
+      return next(err)
+    })
+}
+
 
 const editPosts = (req, res, next) => {
   db.none('UPDATE posts SET posts_content=${posts_content} WHERE id=${id}', {
@@ -94,4 +107,4 @@ const editPosts = (req, res, next) => {
 }
 
 
-module.exports = { getAllPosts, getSinglePost, deletePosts, createPost, editPosts, getUsersInfoForThePost }
+module.exports = { getAllPosts, getSinglePost, deletePosts, createPost, editPosts, getUsersInfoForThePost, getAllPostsFromUsers }

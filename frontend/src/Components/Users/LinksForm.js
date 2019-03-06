@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
-import UsersProfile from './UsersProfile'
+import UsersDashboard from './UsersDashboard'
 
 class LinksForm extends Component {
   constructor() {
@@ -37,14 +37,16 @@ class LinksForm extends Component {
 
     render(){
       if(this.state.submitCheck) {
-        return <Redirect to='/dashboard/user' component={UsersProfile} />
+        return <Redirect to='/dashboard/user' component={UsersDashboard} />
       }
 
       const { postsLink } = this.state
       return (
         <div>
+          <div className='forms'>
             <form onSubmit={this.handleLinkSubmit}>
             <input
+            className='input_boxes'
             type='text'
             name='postsLink'
             value={postsLink}
@@ -52,7 +54,12 @@ class LinksForm extends Component {
             placeholder='enter link url' />
             <button type='submit'>Submit</button>
             </form>
-            <button><Link to='/dashboard/user'>Back</Link></button>
+          </div>
+
+          <div className='back_button'>
+            <Link to='/dashboard/user'><button>Back</button></Link>
+          </div>
+
         </div>
       )
     }

@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 import Homepage from './Components/Homepage/Home.js'
 // import DashboardPage from './Components/DashboardPage.js'
-import UsersProfile from './Components/Users/UsersProfile.js'
+import UsersDashboard from './Components/Users/UsersDashboard.js'
 import AuthForm from "./Components/AuthenticationFiles/AuthForm";
 import PrivateRoute from "./Components/AuthenticationFiles/utils/AuthRouting";
-// import Authenticate from './Authentication.js'
+import UsersProfile from './Components/Users/UsersProfile'
 import Auth from "./Components/AuthenticationFiles/utils/Auth";
 import PostsForm from './Components/Users/PostsForm'
 import ImageForm from './Components/Users/ImageForm'
@@ -72,7 +72,8 @@ class App extends Component {
       <Route path='/new/photo' component={ImageForm} />
       <Route path='/new/link' component={LinksForm} />
       <Route path='/new/quote' component={QuotesForms} />
-      <PrivateRoute path="/dashboard/user" component={UsersProfile} logoutUser={this.logoutUser}/>
+      <PrivateRoute path="/dashboard/user" component={UsersDashboard} logoutUser={this.logoutUser}/>
+      <PrivateRoute path="/profile/:id"component={UsersProfile} isLoggedIn={this.state.isLoggedIn}/>
       </Switch>
       </div>
     );

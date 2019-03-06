@@ -31,19 +31,22 @@
   margin-top: 250px
 }
 
+.profile_username {
+  color: white;
+  -webkit-text-stroke: 2px black;
+  font-size: 70px;
+}
 
 .post_container {
   display: grid;
-  grid-template-columns: 10% 50% 10%;
-  grid-template-rows: 15% 10% 80%;
+  grid-template-columns: 10% 70% 10%;
+  grid-template-rows: 15% 20% 80%;
   height: 400px;
   width: 600px;
   justify-content: center;
   justify-items: center;
   border: 1px solid black;
   background-color: white;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
 }
 
 .main_render_div {
@@ -63,9 +66,12 @@
 }
 
 .content {
+  display: flex;
   grid-column: 2;
   grid-row: 2/3;
   padding-bottom: 10px;
+  width: auto;
+  height: auto;
   /* background-color: white; */
 }
 
@@ -257,8 +263,23 @@
   border-radius: 5px;
 }
 
-.image_url_input, .image_text_input {
-  background-color: darkblue
+.input_boxes {
+  width: 700px;
+  height: 50px;
+  border-radius: 20px;
+}
+
+.forms {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  justify-items: center;
+  margin-top: 300px;
+  margin-left: 450px;
+}
+
+.back_button {
+  display: flex;
+  justify-content: flex-start;
 }
 
 
