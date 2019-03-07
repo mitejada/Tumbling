@@ -11,7 +11,8 @@ class AuthForm extends Component {
   state = {
     username: "",
     password: "",
-    email: ""
+    email: "",
+    avatar_id: ""
   };
 
   handleChange = e => {
@@ -22,10 +23,10 @@ class AuthForm extends Component {
 
   registerUser = async e => {
     e.preventDefault();
-    const { username, password, email } = this.state;
+    const { username, password, email, avatar_id } = this.state;
 
 
-    await axios.post("/users/new", { username, email, password });
+    await axios.post("/users/new", { username, email, password, avatar_id });
 
     Auth.authenticateUser(username);
 
@@ -76,7 +77,7 @@ class AuthForm extends Component {
 
 
   render() {
-    const { username, password, email } = this.state;
+    const { username, password, email, avatar_id } = this.state;
     const { isLoggedIn } = this.props;
 
     return (
@@ -105,6 +106,7 @@ class AuthForm extends Component {
                 username={username}
                 password={password}
                 email={email}
+                avatar_id={avatar_id}
                 isLoggedIn={isLoggedIn}
                 loginUser={this.loginUser}
                 registerUser={this.registerUser}

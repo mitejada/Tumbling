@@ -78,8 +78,8 @@ const getUsersInfoForThePost = (req, res, next) => {
 }
 
 const getAllPostsFromUsers = (req, res, next) => {
-  let usersId = parseInt(req.params.username)
-  db.any('SELECT * FROM users JOIN posts ON posts.author_id = users.id WHERE users.id=$1', usersId)
+  const userName = req.params.userName
+  db.any('SELECT * FROM users JOIN posts ON posts.author_id = users.id WHERE users.username=$1', userName)
     .then(data => {
       res.status(200).json({
         data: data
@@ -87,6 +87,7 @@ const getAllPostsFromUsers = (req, res, next) => {
     })
     .catch(err => {
       return next(err)
+
     })
 }
 

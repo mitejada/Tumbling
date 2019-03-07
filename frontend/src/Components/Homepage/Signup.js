@@ -7,7 +7,8 @@ const Signup = ({
   loginUser,
   registerUser,
   handleChange,
-  email}) => {
+  email,
+  avatar_id}) => {
   return (
     <div>
     <nav>
@@ -19,6 +20,7 @@ const Signup = ({
         <input type='text' className='email_input' name='email' value={email} onChange={handleChange} placeholder='Email' />
         <input type='password' className='password_input' name='password' value={password} onChange={handleChange} placeholder='Password' />
         <input type='text' className='username_input' name='username' value={username} onChange={handleChange} placeholder='Username' />
+        <input type='text' className='avatar_input' name='avatar_id' value={avatar_id} onChange={handleChange} placeholder='Profile Pic' />
         <button className='signupPage_button' type='submit'>Get Started</button>
       </form>
       <p>{isLoggedIn ? "Logged In!" : ""}</p>

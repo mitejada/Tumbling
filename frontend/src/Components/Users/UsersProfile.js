@@ -14,9 +14,11 @@ class UsersProfile extends Component {
 
 
   getAllPostsFromUsers = () => {
-    const usersId = this.props.match.params.username
-    axios.get(`/posts/profile/${usersId}/user`)
+    const userName = this.props.match.params.username
+    console.log(this.props.match);
+    axios.get(`/posts/profile/${userName}`)
       .then(posts => {
+        console.log(posts.data.data);
         this.setState({
           allPosts: posts.data.data
         })
@@ -27,6 +29,12 @@ class UsersProfile extends Component {
     const displayingEveryPost = this.state.allPosts.map(posts => {
       return (
         <div className='post_container' key={posts.id}>
+          <div className='avatar'>
+            {posts.avatar_id === null ? "" :
+              <img src={posts.avatar_id} alt=''></img>
+            }
+          </div>
+
           <div className='username'>
             <h3>{posts.username}</h3>
           </div>
@@ -53,11 +61,12 @@ class UsersProfile extends Component {
   }
 
   render(){
+    const name = this.props.match.params.username
     return(
       <div>
         <Navbar />
         <div>
-        <h2 className='profile_username'>Welcome {this.props.isLoggedIn}</h2>
+        <h2 className='profile_username'>Welcome {name}</h2>
         </div>
         {this.renderAllUsersPosts()}
       </div>

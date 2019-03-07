@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import "../CSSS/Navbar.css"
 
 //   searchUser = (props) => {
@@ -12,32 +12,8 @@ import "../CSSS/Navbar.css"
 
 class Navbar extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state ={
-      usersName: '',
-      status: null
-    }
-  }
-
-  handleChange = (event) => {
-    this.setState({
-      usersName: event.target.value
-    })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-
-    if(this.state.usersName) {
-      this.setState({
-        status: true,
-        usersName: "",
-      })
-    }
-  }
-
   render(){
+    
     return (
       <div className='navbar'>
 
@@ -68,7 +44,9 @@ class Navbar extends Component {
       <div className='account_tab'>
       <img className='account_pic' src='https://banner2.kisspng.com/20180419/tdq/kisspng-user-silhouette-my-account-icon-5ad833d36feb49.1187422515241184834584.jpg' alt=''></img>
       </div>
+
       </nav>
+
       </div>
 
       </div>
@@ -78,4 +56,4 @@ class Navbar extends Component {
 }
 
 
-export default Navbar
+export default withRouter(Navbar)

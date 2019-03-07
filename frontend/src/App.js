@@ -73,7 +73,7 @@ class App extends Component {
       <Route path='/new/link' component={LinksForm} />
       <Route path='/new/quote' component={QuotesForms} />
       <PrivateRoute path="/dashboard/user" component={UsersDashboard} logoutUser={this.logoutUser}/>
-      <PrivateRoute path="/profile/:username"component={UsersProfile} isLoggedIn={this.state.isLoggedIn}/>
+      <PrivateRoute path="/profile/:username"component={UsersProfile} />
       </Switch>
       </div>
     );

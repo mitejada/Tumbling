@@ -15,6 +15,12 @@
   grid-column-start: 2
 }
 
+.avatar {
+  height: 85px;
+  width: 100px;
+  margin-top: 4px;
+}
+
 .title_font {
   font-family: 'Source Code Pro';
   color: white;
@@ -42,14 +48,16 @@
 }
 
 .likes_button {
-  grid-column: 4;
+  grid-column: 3;
   grid-row: 3;
   grid-row: span -3;
+  background-color: white;
 }
 
 .delete_button {
-  grid-column: 4;
+  grid-column: 3;
   margin-left: 10px;
+  background-color: white;
 }
 
 .footer {
@@ -75,8 +83,8 @@
 
 .post_container {
   display: grid;
-  grid-template-columns: 10% 70% 10%;
-  grid-template-rows: 15% 40% 80%;
+  grid-template-columns: 20% 70% 10%;
+  grid-template-rows: 25% 30% 80%;
   height: 400px;
   width: 600px;
   justify-content: center;
@@ -130,7 +138,7 @@
   margin-top: 15px;
 }
 
-.username_input, .password_input, .email_input, .signup_searchbar, .search_input {
+.username_input, .password_input, .email_input, .signup_searchbar, .search_input, .avatar_input {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
