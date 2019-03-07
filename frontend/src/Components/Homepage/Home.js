@@ -36,10 +36,10 @@ const Homepage = () => {
 
 
           <div className="footer">
-            <a href='https://www.tumblr.com/policy/en/terms-of-service'>Terms</a>
-            <a href='https://www.tumblr.com/privacy'>Privacy</a>
-            <a href='https://www.tumblr.com/jobs'>Jobs</a>
-            <a href ='https://www.tumblr.com/login'>Support</a>
+            <a className='footer_links' href='https://www.tumblr.com/policy/en/terms-of-service'>Terms</a>
+            <a className='footer_links' href='https://www.tumblr.com/privacy'>Privacy</a>
+            <a className='footer_links' href='https://www.tumblr.com/jobs'>Jobs</a>
+            <a className='footer_links' href ='https://www.tumblr.com/login'>Support</a>
           </div>
 
 

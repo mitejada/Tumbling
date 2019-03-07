@@ -18,7 +18,38 @@
 .title_font {
   font-family: 'Source Code Pro';
   color: white;
-  -webkit-text-stroke: 2px black
+  -webkit-text-stroke: 2px black;
+}
+
+.deleteButton {
+  width: 15px;
+  height: 15px;
+}
+
+.likesButton {
+  width: 35px;
+  height: 25px;
+}
+
+.empty_div {
+  grid-row: 4/4
+
+}
+
+.likeButtonButton, .deleteButtonButton {
+  background-color: transparent;
+  border: none
+}
+
+.likes_button {
+  grid-column: 4;
+  grid-row: 3;
+  grid-row: span -3;
+}
+
+.delete_button {
+  grid-column: 4;
+  margin-left: 10px;
 }
 
 .footer {
@@ -28,7 +59,12 @@
   font-size: 20px;
   text-decoration: none;
   text-align: center;
-  margin-top: 250px
+  margin-top: 250px;
+}
+
+.footer_links {
+  color: white;
+  font-weight: bold;
 }
 
 .profile_username {
@@ -40,13 +76,15 @@
 .post_container {
   display: grid;
   grid-template-columns: 10% 70% 10%;
-  grid-template-rows: 15% 20% 80%;
+  grid-template-rows: 15% 40% 80%;
   height: 400px;
   width: 600px;
   justify-content: center;
   justify-items: center;
   border: 1px solid black;
   background-color: white;
+  margin-bottom: 35px;
+  padding-bottom: 150px;
 }
 
 .main_render_div {
@@ -72,6 +110,9 @@
   padding-bottom: 10px;
   width: auto;
   height: auto;
+  word-wrap: break-word;
+  white-space: pre-line;
+  /* padding-right: 10px; */
   /* background-color: white; */
 }
 

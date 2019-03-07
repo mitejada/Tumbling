@@ -6,7 +6,7 @@ const { getAllPosts, getSinglePost, deletePosts, createPost, editPosts, getUsers
 router.get('/', getAllPosts);
 router.get('/dashboard/usersPost', getUsersInfoForThePost)
 router.get('/:id', getSinglePost);
-router.delete('/:id', deletePosts);
+router.delete('/delete/:id', deletePosts);
 router.post('/new', createPost)
 router.get('/profile/:id/user', getAllPostsFromUsers)
 router.patch('/:id', editPosts);

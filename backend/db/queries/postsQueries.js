@@ -30,7 +30,7 @@ const getSinglePost = (req, res, next) => {
 const deletePosts = (req, res, next) => {
   let postsId = parseInt(req.params.id)
   db.none('DELETE FROM posts WHERE id=$1', postsId)
-    .then(result => {
+    .then(() => {
       res.status(200).json({
         message: 'You have deleted a post!'
       })
@@ -78,7 +78,7 @@ const getUsersInfoForThePost = (req, res, next) => {
 }
 
 const getAllPostsFromUsers = (req, res, next) => {
-  let usersId = parseInt(req.params.id)
+  let usersId = parseInt(req.params.username)
   db.any('SELECT * FROM users JOIN posts ON posts.author_id = users.id WHERE users.id=$1', usersId)
     .then(data => {
       res.status(200).json({

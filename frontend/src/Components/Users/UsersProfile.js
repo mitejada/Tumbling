@@ -14,7 +14,7 @@ class UsersProfile extends Component {
 
 
   getAllPostsFromUsers = () => {
-    const usersId = this.props.match.params.id
+    const usersId = this.props.match.params.username
     axios.get(`/posts/profile/${usersId}/user`)
       .then(posts => {
         this.setState({
