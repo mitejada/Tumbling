@@ -1,5 +1,6 @@
 .home_pic {
   width: 60px;
+  background-color: transparent;
 }
 
 .explore_pic {
@@ -50,6 +51,7 @@
 .account_pic {
   width: 30px;
   margin-right: 9px;
+  background-color: transparent;
 }
 
 .logo_pic {

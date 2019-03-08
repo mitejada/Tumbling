@@ -7,8 +7,7 @@ class RenderAllPosts extends Component {
   constructor(props){
     super(props)
     this.state = {
-      storeAllPosts: [],
-
+      storeAllPosts: []
     }
   }
 
@@ -71,7 +70,7 @@ class RenderAllPosts extends Component {
           <div className='post_container' key={display.id}>
 
             <div className='avatar'>
-              <img src={display.avatar_id} alt=''></img>
+              <img className='avatar' src={display.avatar_id} alt=''></img>
             </div>
 
             <div className='delete_button'>
@@ -105,7 +104,7 @@ class RenderAllPosts extends Component {
           <div className='post_container' key={display.id}>
 
             <div className='avatar'>
-              <img src={display.avatar_id} alt=''></img>
+              <img className='avatar' src={display.avatar_id} alt=''></img>
             </div>
 
             <div className='delete_button'>

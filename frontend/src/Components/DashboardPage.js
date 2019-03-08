@@ -1,10 +1,10 @@
 import React from 'react'
 import Navbar from './Navbar.js'
 
-const DashboardPage = () => {
+const DashboardPage = ({username}) => {
   return (
     <div>
-      <Navbar />
+      <Navbar username={username}/>
     </div>
   )
 }

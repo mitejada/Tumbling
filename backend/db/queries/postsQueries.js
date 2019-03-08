@@ -2,7 +2,7 @@ const { db } = require('./index.js')
 
 
 const getAllPosts = (req, res, next) => {
-  db.any('SELECT * FROM posts')
+  db.any('SELECT * FROM posts ORDER BY date_stamp DESC')
     .then((posts) => {
       res.status(200).json({
         posts: posts

@@ -15,7 +15,6 @@ class UsersProfile extends Component {
 
   getAllPostsFromUsers = () => {
     const userName = this.props.match.params.username
-    console.log(this.props.match);
     axios.get(`/posts/profile/${userName}`)
       .then(posts => {
         console.log(posts.data.data);
@@ -31,7 +30,7 @@ class UsersProfile extends Component {
         <div className='post_container' key={posts.id}>
           <div className='avatar'>
             {posts.avatar_id === null ? "" :
-              <img src={posts.avatar_id} alt=''></img>
+              <img className='avatar' src={posts.avatar_id} alt=''></img>
             }
           </div>
 
