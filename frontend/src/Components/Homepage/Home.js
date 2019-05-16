@@ -1,19 +1,22 @@
 import React from 'react'
-import { Link, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import DashboardPage from '../DashboardPage.js'
-// import './CSSS/Home.css'
+import '../../CSSS/Home.css'
 // import PostsForm from '../Users/PostsForm.js'
 
 const Homepage = () => {
     return (
       <div className='homepage_main'>
-
-          <nav className='homepage_leftNav'>
-
-            <img className='homepage_pic' src='https://banner2.kisspng.com/20180412/uqw/kisspng-alphabet-letter-clip-art-letter-t-5acefe1ff3dd64.5981215315235149119989.jpg' alt=''></img>
-              <input className='search_input' type='text' placeholder='search' />
-              <hr />
-
+          <nav>
+              <form>
+                <div className="nav-wrapper">
+                  <div className="input-field">
+                    <input id="search" type="search" required/>
+                    <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
+                    <i className="material-icons">close</i>
+                  </div>
+                </div>
+              </form>
           </nav>
 
           <div className='homepage_midsection'>
@@ -22,14 +25,9 @@ const Homepage = () => {
           </div>
 
           <div className='mainpage_buttons'>
+            <div> <a href='/auth/signup'class="waves-effect waves-light btn">Get Started</a> </div>
 
-            <div className='signup_button'>
-              <button className='signup_getStarted'><Link className='signup_link' to='/auth/signup'>Get Started</Link></button>
-            </div>
-
-            <div className='login_button'>
-              <button className='login_start'><Link className='login_link' to='/auth/login'>Login</Link></button>
-            </div>
+            <div className='login'> <a href='/auth/login'class="waves-effect waves-light btn">Login</a> </div>
           </div>
 
           </div>

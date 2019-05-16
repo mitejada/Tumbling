@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Navbar from '../../Components/Navbar'
+import NavBar from '../../Components/Navbar.js'
 
 
 class UsersProfile extends Component {
@@ -63,7 +63,7 @@ class UsersProfile extends Component {
     const name = this.props.match.params.username
     return(
       <div>
-        <Navbar />
+        <NavBar />
         <div>
         <h2 className='profile_username'>Welcome {name}</h2>
         </div>

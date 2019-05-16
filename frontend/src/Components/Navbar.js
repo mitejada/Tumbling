@@ -1,49 +1,44 @@
 import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+// import { Navbar, NavItem, Icon } from 'react-materialize'
+import M from 'materialize-css'
 import "../CSSS/Navbar.css"
 
 
-class Navbar extends Component {
+class NavBar extends Component {
+
+  componentDidMount(){
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems);
+    });
+  }
 
   render(){
-
-    console.log(this.props.username);
     return (
-
-      <div className='navbar'>
-
-      <div className='navigation'>
-      <img className='logo_pic' src='https://banner2.kisspng.com/20180412/uqw/kisspng-alphabet-letter-clip-art-letter-t-5acefe1ff3dd64.5981215315235149119989.jpg' alt=''></img>
-      <input className='nav_search_bar' type='text' placeholder="Search Tumbling" />
-
-      <nav className='tab_bar'>
-      <div className='home_tab'>
-      <Link to='/dashboard/user'><img className='home_pic' src='https://imageog.flaticon.com/icons/png/512/25/25694.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF' alt=''></img></Link>
-      </div>
-
-      <div className='explore_tab'>
-      <Link to='/explore'><img className='explore_pic' src='http://icons.iconarchive.com/icons/icons8/android/512/Maps-Compass-icon.png' alt=''></img></Link>
-      </div>
-
-      <div className='inbox_tab'>
-      <Link to='/inbox'><img className='inbox_pic' src='https://cdn1.iconfinder.com/data/icons/rcons-line-ios-3/32/mail-512.png' alt=''></img></Link>
-      </div>
-
-      <div className='messaging_tab'>
-      <Link to='/messaging'><img className='messaging_pic' src='https://previews.123rf.com/images/jemastock/jemastock1708/jemastock170817778/84880921-happy-grin-emoji-instant-messaging-icon-image-vector-illustration-design-black-and-white.jpg' alt=''></img></Link>
-      </div>
-
-      <div className='activity_tab'>
-      <img className='activity_pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOqQgcFm6HD8y5JJep4TvFM5SJPpVDkPg9bqrbNaHJmbBtMvpllA' alt=''></img>
-      </div>
-
-      <div className='account_tab'>
-      <a href={'/profile/' + this.props.username}><img className='account_pic' src='https://banner2.kisspng.com/20180419/tdq/kisspng-user-silhouette-my-account-icon-5ad833d36feb49.1187422515241184834584.jpg' alt=''></img></a>
-      </div>
+      <div>
+      <nav>
+        <div className="nav-wrapper">
+          <a href="/" className="brand-logo"><img className='logo_pic' src='https://banner2.kisspng.com/20180412/uqw/kisspng-alphabet-letter-clip-art-letter-t-5acefe1ff3dd64.5981215315235149119989.jpg' alt=''></img></a>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <li><a href="/dashboard/user"><i className="material-icons">home</i></a></li>
+            <li><a href="/explore"><i className="material-icons">explore</i></a></li>
+            <li><a href="/inbox"><i className="material-icons">inbox</i></a></li>
+            <li><a href="/messaging"><i className="material-icons">message</i></a></li>
+            <li><a href="/activity"><i className="material-icons">tap_and_play</i></a></li>
+            <li><a href={'/profile/' + this.props.username}><i className="material-icons">account_circle</i></a></li>
+          </ul>
+          <ul id="slide-out" className="sidenav">
+            <li><a href="/dashboard/user">Home</a></li>
+            <li><a href="/explore">Explore</a></li>
+            <li><a href="/inbox">Inbox</a></li>
+            <li><a href="/messaging">Message</a></li>
+            <li><a href="/activity">Activity</a></li>
+            <li><a href={'/profile/' + this.props.username}>Profile</a></li>
+          </ul>
+            <a href="/" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+        </div>
       </nav>
-
-      </div>
-
       </div>
     )
 
@@ -51,4 +46,4 @@ class Navbar extends Component {
 }
 
 
-export default withRouter(Navbar)
+export default withRouter(NavBar)

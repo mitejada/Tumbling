@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
-import Navbar from '../Navbar.js'
+import NavBar from '../Navbar.js'
 import PostingNavbar from './PostingNavbar'
 import RenderAllPosts from './RenderAllPosts'
+import axios from 'axios'
 
 
 class UsersDashboard extends Component {
-
     render() {
+
     return (
       <div>
-      <Navbar username={this.props.username}/>
+      <NavBar username={this.props.username}/>
       <PostingNavbar />
-      <RenderAllPosts />
       <button className='logout_button' onClick={this.props.logoutUser} type='submit'>Logout</button>
+      <RenderAllPosts />
       </div>
     )
   }

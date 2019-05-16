@@ -5,12 +5,15 @@
   "dependencies": {
     "axios": "^0.18.0",
     "hover.css": "^2.3.2",
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.8.3",
     "react-dom": "^16.8.1",
     "react-favicon": "0.0.14",
+    "react-materialize": "^3.2.2",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.5"
+    "react-scripts": "^2.1.5",
+    "video-react": "^0.13.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,4 +30,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-"proxy": "http://localhost:3001"}
+  "proxy": "http://localhost:3001"
+}

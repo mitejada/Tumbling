@@ -4,7 +4,9 @@
   "description": "[Trello][trello]",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./backend/bin/www",
+    "start": "concurrently --kill-others \"cd frontend && npm start\" \"cd backend && npm start\""
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/mitejada/Tumbling/issues"
   },
-  "homepage": "https://github.com/mitejada/Tumbling#readme"
+  "homepage": "https://github.com/mitejada/Tumbling#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
 }

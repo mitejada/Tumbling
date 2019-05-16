@@ -1,32 +1,42 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react'
+import M from 'materialize-css'
+// import { Link } from 'react-router-dom'
 
-const Login = ({
-  password,
-  isLoggedIn,
-  loginUser,
-  registerUser,
-  handleChange,
-  username
-}) => {
+class Login extends Component {
 
-  return (
-    <div>
-      <div className='login_navbar'>
-        <nav>
-          <img className='homepage_pic' src='https://banner2.kisspng.com/20180412/uqw/kisspng-alphabet-letter-clip-art-letter-t-5acefe1ff3dd64.5981215315235149119989.jpg' alt=''></img>
-          <input className='login_searchbar' type='text' placeholder='search' />
-        </nav>
-        <button className='login_signup_button'><Link to='/auth/signup'>SignUp</Link></button>
+  componentDidUpdate(){
+    M.updateTextFields()
+  }
+
+  render(){
+    const { password, loginUser, handleChange, username } = this.props;
+
+    return (
+      <div>
+        <div className='login_navbar'>
+          <div> <a href='/auth/signup'className="waves-effect waves-light btn">Get Started</a> </div>
+        </div>
+        <div className="row">
+          <form className="col s12" onSubmit={loginUser} >
+            <div className="row">
+              <div className="input-field col s6">
+                <input id="first_name" type="text" name='username' value={username} onChange={handleChange} className="validate"/>
+                <label htmlFor="first_name">Username</label>
+              </div>
+              <div className="input-field col s6">
+                <input id="last_name" type="password" name='password' value={password} onChange={handleChange} className="validate"/>
+                <label htmlFor="last_name">Password</label>
+              </div>
+            </div>
+            <button className='loginPage_button' type='submit'>Log In</button>
+          </form>
+        </div>
       </div>
-      <form onSubmit={loginUser} className='login_form'>
-        <input type='text' className='username_input' name='username' value={username} onChange={handleChange} placeholder='Username' />
-        <input type='password' className='password_input' name='password' value={password} onChange={handleChange} placeholder='Password' />
-        <button className='loginPage_button' type='submit'>Log In</button>
-      </form>
-    </div>
-  )
+    )
+
+  }
 }
+
 
 
 
