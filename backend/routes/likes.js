@@ -4,7 +4,7 @@ const { addALike, deleteALike, getLikesPerPost  } = require('../db/queries/likes
 
 router.get('/posts/:post_id', getLikesPerPost)
 router.post('/new', addALike);
-router.delete('/delete/:id/:user_id', deleteALike);
+router.delete('/delete/:id/:user_name', deleteALike);
 
 
 module.exports = router

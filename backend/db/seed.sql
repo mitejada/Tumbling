@@ -1,4 +1,4 @@
-eDROP DATABASE IF EXISTS tumbling;
+DROP DATABASE IF EXISTS tumbling;
 CREATE DATABASE tumbling;
 
 \c tumbling;
@@ -32,7 +32,7 @@ CREATE TABLE follow (
 CREATE TABLE likes (
   id SERIAL PRIMARY KEY,
   posts_id INT REFERENCES posts(id) ON DELETE CASCADE,
-  user_id INT REFERENCES users(id) ON DELETE CASCADE
+  user_name VARCHAR REFERENCES users(username)
 );
 
 CREATE TABLE tags (
@@ -43,8 +43,8 @@ CREATE TABLE tags (
 
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
-  tags_id INT REFERENCES posts(id) ON DELETE CASCADE,
-  posts_id INT REFERENCES users(id) ON DELETE CASCADE,
+  posts_id INT REFERENCES posts(id) ON DELETE CASCADE,
+  users_name VARCHAR REFERENCES users(username),
   body VARCHAR NOT NULL
 );
 
@@ -59,5 +59,8 @@ VALUES (1, 'My first post !', null, 'text', null, null),
 (2, 'Today I am having a great day', null, 'text', null, null),
 (2, 'That waterfall looks amazing', 'https://images.pexels.com/photos/68147/waterfall-thac-dray-nur-buon-me-thuot-daklak-68147.jpeg?cs=srgb&dl=hd-wallpaper-landscape-long-exposure-68147.jpg&fm=jpg', 'image', null, null);
 
-INSERT INTO likes (posts_id, user_id)
-VALUES (1, 2), (2, 2), (3, 2), (4, 1), (5, 1), (6, 1)
+INSERT INTO likes (posts_id, user_name)
+VALUES (1, 'jimmy'), (2, 'jimmy'), (3, 'jimmy'), (4, 'aaron'), (5, 'aaron'), (6, 'aaron');
+
+INSERT INTO comments(posts_id, users_name, body)
+VALUES (1, 'jimmy', 'nice post bro'), (2, 'jimmy', 'this is pretty sick'), (2, 'aaron', 'right back atcha brother'), (2, 'jimmy', 'pretty dope')

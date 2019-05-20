@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
+import CommentsForm from './CommentsForm'
 
 
 class RenderAllPosts extends Component {
@@ -8,9 +9,12 @@ class RenderAllPosts extends Component {
     super(props)
     this.state = {
       storeAllPosts: [],
-      liked: false
+      liked: false,
+      body: '',
+      submitted: false
     }
   }
+
 
   componentDidMount() {
     this.getEveryPost()
@@ -19,11 +23,15 @@ class RenderAllPosts extends Component {
   getEveryPost = () => {
     axios.get('/posts/dashboard/usersPost')
       .then(results => {
-        this.setState({
-          storeAllPosts: results.data.info
-        })
+        if(results.data.info.likes === null) {
+          return ''
+        } else {
+          this.setState({
+            storeAllPosts: results.data.info
+          })
+        }
       })
-      .catch(err => console.log(err))
+
   }
 
   deleteAPost = (event) => {
@@ -40,7 +48,10 @@ class RenderAllPosts extends Component {
     event.preventDefault()
 
     if(!this.state.liked) {
-      axios.post('/likes/new', { posts_id: event.currentTarget.dataset.postsid, user_id:event.currentTarget.dataset.usersid})
+      axios.post('/likes/new', { posts_id: event.currentTarget.dataset.postsid, user_name: this.props.usersnames})
+        .then(() => {
+          this.getEveryPost()
+        })
         .catch(err => {
           console.log(err);
         })
@@ -51,16 +62,40 @@ class RenderAllPosts extends Component {
     })
 
     if(this.state.liked) {
-      axios.delete(`/likes/delete/${event.currentTarget.dataset.postsid}/${event.currentTarget.dataset.usersid}`)
+      axios.delete(`/likes/delete/${event.currentTarget.dataset.postsid}/${this.props.usersnames}`)
+        .then(() => {
+          this.getEveryPost()
+        })
         .catch(err => {
           console.log(err);
         })
     }
+
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      body: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const { body } = this.state
+
+    axios.post('/comments/new', {posts_id: event.currentTarget.dataset.post, users_name: this.props.usersnames, body: body})
+      .catch(err => {
+        return Error
+      })
+
+      this.setState({
+        submitted: true,
+        body: ''
+      })
   }
 
 
   render(){
-
     const displayEveryPost = this.state.storeAllPosts.reverse().map(display => {
       if(display.posts_type === 'text') {
         return (
@@ -73,8 +108,8 @@ class RenderAllPosts extends Component {
             </div>
 
             <div className='grid-item'>
-              <div className='username' data-usersid={display.users_id}>
-                <h3 data-usersid={display.users_id}>{display.username}</h3>
+              <div className='username'>
+                <Link to={`/profile/${display.username}`}><h3>{display.username}</h3></Link>
               </div>
             </div>
 
@@ -101,6 +136,28 @@ class RenderAllPosts extends Component {
                 <p>{display.likes}</p>
               </div>
             </div>
+
+            <div className='grid-item'></div>
+
+            <div className='grid-item'>
+              {display.comments.map(i => {
+                return (
+                  <ul key={i}>{i}</ul>
+                )
+              })}
+
+              <div data-post={display.posts_id}>
+                <CommentsForm
+                  posts_id={display.posts_id}
+                  body={this.state.body}
+                  submitted={this.state.submitted}
+                  handleChange={this.handleChange}
+                  handleSubmit={this.handleSubmit}
+                  />
+              </div>
+            </div>
+
+            <div className='grid-item'></div>
           </div>
         )
       } else if(display.posts_type === 'image') {
@@ -115,7 +172,7 @@ class RenderAllPosts extends Component {
 
             <div className='grid-item'>
               <div className='username'>
-                <h3 data-usersid={display.users_id}>{display.username}</h3>
+              <Link to={`/profile/${display.username}`}><h3>{display.username}</h3></Link>
               </div>
             </div>
 
@@ -142,10 +199,32 @@ class RenderAllPosts extends Component {
 
             <div className='grid-item'>
               <div className='likes_button'>
-                <button className='likeButtonButton'><i className="material-icons" data-postsid={display.posts_id}>thumb_up</i></button>
+                <button className='likeButtonButton' onClick={this.addALike} data-postsid={display.posts_id}><i className="material-icons">thumb_up</i></button>
                 <p>{display.likes}</p>
               </div>
             </div>
+
+            <div className='grid-item'></div>
+
+            <div className='grid-item'>
+              {display.comments.map(i => {
+                return (
+                  <ul key={i}>{i}</ul>
+                )
+              })}
+
+              <div data-post={display.posts_id}>
+                <CommentsForm
+                  posts_id={display.posts_id}
+                  body={this.state.body}
+                  submitted={this.state.submitted}
+                  handleChange={this.handleChange}
+                  handleSubmit={this.handleSubmit}
+                  />
+              </div>
+            </div>
+
+            <div className='grid-item'></div>
           </div>
         )
       } else if(display.posts_type === 'links') {
@@ -160,7 +239,7 @@ class RenderAllPosts extends Component {
 
             <div className='grid-item'>
               <div className='username'>
-                <h3 data-usersid={display.users_id}>{display.username}</h3>
+              <Link to={`/profile/${display.username}`}><h3>{display.username}</h3></Link>
               </div>
             </div>
 
@@ -183,10 +262,44 @@ class RenderAllPosts extends Component {
 
             <div className='grid-item'>
               <div className='likes_button'>
-                <button className='likeButtonButton'><i className="material-icons" data-postsid={display.posts_id}>thumb_up</i></button>
+                <button className='likeButtonButton' onClick={this.addALike} data-postsid={display.posts_id}><i className="material-icons">thumb_up</i></button>
                 <p>{display.likes}</p>
               </div>
+
+              <div className='grid-item'></div>
+
+              <div className='grid-item'>
+                {display.comments.map(i => {
+                  return (
+                    <ul key={i}>{i}</ul>
+                  )
+                })}
+
+                <div data-post={display.posts_id}>
+                  <CommentsForm
+                    posts_id={display.posts_id}
+                    body={this.state.body}
+                    submitted={this.state.submitted}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    />
+                </div>
+              </div>
+
+              <div className='grid-item'></div>
             </div>
+
+            <div className='grid-item'></div>
+
+            <div className='grid-item'>
+              {display.comments.map(i => {
+                return (
+                  <ul key={i}>{i}</ul>
+                )
+              })}
+            </div>
+
+            <div className='grid-item'></div>
           </div>
         )
       }

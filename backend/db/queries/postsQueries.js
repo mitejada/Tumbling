@@ -66,7 +66,7 @@ const createPost = (req, res, next) => {
 
 const getUsersInfoForThePost = (req, res, next) => {
   req.body.author_id = req.user.id
-  db.any('SELECT users.id as users_id, username, avatar_id, count(distinct likes.id) as likes, posts_content, posts_img, posts_type, posts_link, posts_quote, posts.id as posts_id, posts.date_stamp as posts_timeStamp FROM users JOIN posts ON posts.author_id = users.id join likes on likes.posts_id = posts.id group by users.id, username, avatar_id, posts_content, posts_img, posts_type, posts_link, posts_quote, posts.id, posts.date_stamp')
+  db.any('SELECT users.id as users_id, username, avatar_id, count(distinct likes.id) as likes, array_agg(distinct comments.body) as comments, posts_content, posts_img, posts_type, posts_link, posts_quote, posts.id as posts_id, posts.date_stamp as posts_timeStamp FROM users JOIN posts ON posts.author_id = users.id JOIN likes ON likes.posts_id = posts.id JOIN comments ON comments.posts_id = posts.id GROUP BY users.id, username, avatar_id, posts_content, posts_img, posts_type, posts_link, posts_quote, posts.id, posts.date_stamp')
     .then(info => {
       res.status(200).json({
         info: info

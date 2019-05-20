@@ -57,6 +57,10 @@ input#search {
   border: none
 }
 
+.material-icons:focus {
+  background-color: red;
+}
+
 .likes_button {
   grid-column: 3;
   grid-row: 3;

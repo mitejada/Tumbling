@@ -1,9 +1,9 @@
 const { db } = require('./index.js')
 
 const addALike = (req, res, next) => {
-  db.none('INSERT INTO likes(posts_id, user_id) VALUES(${posts_id}, ${user_id})', {
+  db.none('INSERT INTO likes(posts_id, user_name) VALUES(${posts_id}, ${user_name})', {
    posts_id: req.body.posts_id,
-   user_id: req.body.user_id
+   user_name: req.body.user_name
  })
    .then(() => {
      res.status(200).json({
@@ -18,8 +18,8 @@ const addALike = (req, res, next) => {
 
 const deleteALike = (req, res, next) => {
   const likesId = req.params.id
-  const userId = req.params.user_id
-  db.none('DELETE FROM likes WHERE posts_id=$1 AND user_id=$2', [likesId, userId])
+  const userId = req.params.user_name
+  db.none('DELETE FROM likes WHERE posts_id=$1 AND user_name=$2', [likesId, userId])
     .then(() => {
       res.status(200).json({
         status: 'success',
